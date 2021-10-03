@@ -12,7 +12,7 @@ table.dataTable thead th {
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                    PrinThings - All Sales
+                    Deleon's Best - All Sales
                 </h1>
                 <p style="color: white">Always record and update the Daily Sales</p>
             </div>
@@ -30,23 +30,6 @@ table.dataTable thead th {
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="row mb-3">
-                                        <div class="col-md-3 col-lg-3">
-                                            <h4>Total Sale: <span style="color: green">₱{{ number_format($daily_sale, 2) }}</span> </h4>
-                                            <h4>Total Unpaid:  <span style="color: red">₱{{ number_format($unpaid, 2) }}</span></h4>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3">
-                                            <h4>For Delivery/Pick Up: {{$delivery}}</h4>
-                                            <h4>No Artist: {{$no_artist}}</h4>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3">
-                                            <h4>For Printing: {{$for_printing}}</h4>
-                                            <h4>Layout in Progress: {{$in_progress}}</h4>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3">
-
-                                        </div>
-                                    </div>
                                     <table id="datatables" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>

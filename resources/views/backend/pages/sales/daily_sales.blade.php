@@ -23,27 +23,12 @@ table.dataTable thead th {
                             <h5 class="card-title">Daily Sales
                                 <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#defaultModalPrimary" style="float:right">Add Order</button> 
                                 <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#customerModal" style="float:right">Add Client</button>
-                                <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#rushfeeModal" style="float:right">Add Rush Fee/Tip</button>
                             </h5>
                         </div>
                         @include('backend.partials.flash-message')
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="row mb-3">
-                                        <div class="col-md-3 col-lg-3">
-                                            <h4>Total Sale: <span style="color: green">₱{{ number_format($daily_sale, 2) }}</span> </h4>
-                                            <h4>Total Unpaid:  <span style="color: red">₱{{ number_format($unpaid, 2) }}</span></h4>
-                                        </div>
-                                        <div class="col-md-3 col-lg-3">
-                                            <h4>For Delivery/Pick Up: {{$delivery}}</h4>
-                                        </div>
-                                      
-                                        <div class="col-md-3 col-lg-3">
-
-                                        </div>
-                                    </div>
-
                                     <table id="datatables" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>

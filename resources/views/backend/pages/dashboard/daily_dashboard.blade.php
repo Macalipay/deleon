@@ -39,77 +39,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 col-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Total Expense</h5>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="avatar">
-                                        <div class="avatar-title rounded-circle bg-primary-dark">
-                                            <i class="align-middle fas fa-tasks"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="display-5 mt-1 mb-3" style="color: red" id="total_expense">₱{{ number_format($expense, 2) }}</h1>
-                            <div class="mb-0">
-                                <span class="text-success">Total Expense for Today.
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-3 col-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">BDO</h5>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="avatar">
-                                        <div class="avatar-title rounded-circle bg-primary-dark">
-                                            <i class="align-middle fas fa-credit-card"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="display-5 mt-1 mb-3" id="bdo">₱{{ number_format($bdo, 2) }}</h1>
-                            <div class="mb-0">
-                                <span class="text-success">Money transferred on BDO Account
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 col-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">BPI</h5>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="avatar">
-                                        <div class="avatar-title rounded-circle bg-primary-dark">
-                                            <i class="align-middle fas fa-credit-card"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="display-5 mt-1 mb-3" id="bpi">₱{{ number_format($bpi, 2) }}</h1>
-                            <div class="mb-0">
-                                <span class="text-success">Money transferred on BPI Account
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-6 col-lg-3 col-xl">
                     <div class="card">
                         <div class="card-body">
@@ -152,54 +83,6 @@
                             <h1 class="display-5 mt-1 mb-3" id="cash">₱{{ number_format($cash, 2) }}</h1>
                             <div class="mb-0">
                                 <span class="text-success">Total Cash
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 col-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Total Unpaid</h5>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="avatar">
-                                        <div class="avatar-title rounded-circle bg-primary-dark">
-                                            <i class="align-middle fas fa-money-bill"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="display-5 mt-1 mb-3" style="color: red" id="unpaid">₱{{ number_format($unpaid, 2) }}</h1>
-                            <div class="mb-0">
-                                <span class="text-success">Total Unpaid and expected receivables.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 col-xl">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Total Rush Fee/Tip</h5>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="avatar">
-                                        <div class="avatar-title rounded-circle bg-primary-dark">
-                                            <i class="align-middle fas fa-donate"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="display-5 mt-1 mb-3" id="rushfee">₱{{ number_format($rushfee, 2) }}</h1>
-                            <div class="mb-0">
-                                <span class="text-success">Total Rush Fee/Tip that collected to our clients.
                             </div>
                         </div>
                     </div>

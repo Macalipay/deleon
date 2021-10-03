@@ -94,52 +94,6 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col mt-0">
-                                                <h5 class="card-title">BPI</h5>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="avatar">
-                                                    <div class="avatar-title rounded-circle bg-primary-dark">
-                                                        <i class="align-middle fas fa-money-bill-wave"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h1 class="display-5 mt-1 mb-3">₱{{ number_format($bpi, 2) }}</h1>
-                                        <div class="mb-0">
-                                            BPI Money
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3 col-xl">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col mt-0">
-                                                <h5 class="card-title">BDO</h5>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="avatar">
-                                                    <div class="avatar-title rounded-circle bg-primary-dark">
-                                                        <i class="align-middle fas fa-money-bill-wave"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h1 class="display-5 mt-1 mb-3">₱{{ number_format($bdo , 2) }}</h1>
-                                        <div class="mb-0">
-                                            BDO Money
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3 col-xl">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col mt-0">
                                                 <h5 class="card-title">GCash</h5>
                                             </div>
 
@@ -189,61 +143,7 @@
                 <div class="col-12 d-flex">
                     <div class="w-100">
                         <div class="row">
-                            <div class="col-md-6 col-lg-3 col-xl">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col mt-0">
-                                                <h5 class="card-title">Gross Income</h5>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="avatar">
-                                                    <div class="avatar-title rounded-circle bg-primary-dark">
-                                                        <i class="align-middle fas fa-money-bill-wave"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h1 class="display-5 mt-1 mb-3">₱{{ number_format($monthly, 2) }}</h1>
-                                        <div class="mb-0">
-                                            <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.65% </span> Less Gross Income than usual
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3 col-xl">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col mt-0">
-                                                <h5 class="card-title">Monthly Expense</h5>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="avatar">
-                                                    <div class="avatar-title rounded-circle bg-primary-dark">
-                                                        <i class="align-middle fas fa-money-bill-wave"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h1 class="display-5 mt-1 mb-3">₱{{ number_format($expense , 2) }}</h1>
-                                        <div class="mb-0">
-                                            <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 8.35% </span> More Monthly Expense than usual
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 d-flex">
-                    <div class="w-100">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xxl-6">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xxl-12">
                                 <div class="card flex-fill w-100">
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">Monthly Sales</h5>
@@ -251,18 +151,6 @@
                                     <div class="card-body d-flex w-100">
                                         <div class="align-self-center chart chart-lg">
                                             <canvas id="chartjs-dashboard-bar"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xxl-6">
-                                <div class="card flex-fill w-100">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Monthly Expense</h5>
-                                    </div>
-                                    <div class="card-body d-flex w-100">
-                                        <div class="align-self-center chart chart-lg">
-                                            <canvas id="bar-graph-expense"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -275,7 +163,7 @@
                 <div class="col-xl-12 col-xxl-12 d-flex">
                     <div class="w-100">
                         <div class="row">
-                            <div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xxl-6 d-flex">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xxl-12 d-flex">
                                 <div class="card flex-fill" style="padding: 15px">
                                     <div class="card-header">
                                         <h5 class="card-title mb-0">Daily Sales Summary</h5>
@@ -307,34 +195,6 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xxl-6">
-                                <div class="card flex-fill w-100">
-                                    <div class="card-header">
-                                        <h5 class="card-title mb-0">Expense Allocation</h5>
-                                    </div>
-                                    <div class="card-body d-flex">
-                                        <div class="align-self-center w-100">
-                                            <div class="py-3">
-                                                <div class="chart chart-xs">
-                                                    <canvas id="chartjs-dashboard-pie"></canvas>
-                                                </div>
-                                            </div>
-            
-                                            <table class="table mb-0">
-                                                <tbody>
-                                                    @foreach ($piechart as $item)
-                                                        <tr>
-                                                            <td><i class="fas fa-circle fa-fw" style="color:{{$item->expense_type->color}}"></i>{{$item->expense_type->expense}}</td>
-                                                            <td class="text-right">₱{{number_format($item->amount, 2)}}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
                     </div>
                 </div>
             </div>

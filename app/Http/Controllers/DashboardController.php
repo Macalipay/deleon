@@ -78,7 +78,11 @@ class DashboardController extends Controller
 
         $sums=Payment::groupBy('date')->whereBetween('date', [$startDate->firstOfMonth()->toDateString(), $startDate->endOfMonth()->toDateString()])
                         ->selectRaw( "sum( amount ) as sum" )->get( "sum" ); 
-        $average=$sums->sum("sum")/$sums->count();
+        try {
+            $average=$sums->sum("sum")/$sums->count();
+        } catch (\Throwable $th) {
+            $average= 0;
+        }
 
         $piechart = Expense::groupBy('expensetype_id')->selectRaw('sum(amount) as amount, expensetype_id')->whereBetween('date', [$startDate->firstOfMonth()->toDateString(), 
                                     $startDate->endOfMonth()->toDateString()])->with('expense_type')->get();
@@ -169,7 +173,11 @@ class DashboardController extends Controller
         $monthly = Payment::whereBetween('date', [$startDate->firstOfMonth()->toDateString(), $startDate->endOfMonth()->toDateString()])->sum('amount');
 
         $sums=Payment::groupBy('date')->selectRaw( "sum( amount ) as sum" )->get( "sum" ); 
-        $average=$sums->sum("sum")/$sums->count();
+        try {
+            $average=$sums->sum("sum")/$sums->count();
+        } catch (\Throwable $th) {
+            $average= 0;
+        }
 
         $piechart = Expense::groupBy('expensetype_id')->selectRaw('sum(amount) as amount, expensetype_id')->with('expense_type')->get();
 

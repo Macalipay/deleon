@@ -34,17 +34,6 @@
                     </ul>
                 </li>
 
-                
-
-                <li class="sidebar-item">
-                    <a href="#customer" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fa fa-fw fa-mug-hot" style="color: #153d77"></i> <span class="align-middle">CRM</span>
-                    </a>
-                    <ul id="customer" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('customer') }}">Customer</a></li>
-                    </ul>
-                </li>
-
                 @role('Super Admin')
                 <li class="sidebar-item">
                     <a href="#account" data-toggle="collapse" class="sidebar-link collapsed">
@@ -78,18 +67,6 @@
                         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('daily_sales') }}">Daily Sales</a></li>
                         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('daily_sales/all') }}">All Sales</a></li>
                         <li class="sidebar-item"><a class="sidebar-link" href="{{ url('payment') }}">Payment</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('rushfee') }}">Rush Fee</a></li>
-                    </ul>
-                </li>
-
-                
-                <li class="sidebar-item">
-                    <a href="#printhings_expense" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fas fa-fw fa-money-bill"></i> <span class="align-middle">Expense</span>
-                    </a>
-                    <ul id="printhings_expense" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('expense') }}">Daily Expense</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('expense/all') }}">All Expenses</a></li>
                     </ul>
                 </li>
 
@@ -104,31 +81,6 @@
                         @endrole
                     </ul>
                 </li>
-
-
-                @role('Super Admin|Admin')
-                    <li class="sidebar-header">
-                        Maintenance
-                    </li>
-                    
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ url('consumable') }}">
-                            <i class="align-middle mr-2 fa fa-fw fa-wine-bottle" style="color: #153d77"></i> <span class="align-middle">Consumable Product</span>
-                        </a>
-                        <a class="sidebar-link" href="{{ url('payment_type') }}">
-                            <i class="align-middle mr-2 far fa-fw fa-credit-card"></i> <span class="align-middle">Payment Type</span>
-                        </a>
-                        <a class="sidebar-link" href="{{ url('expense_type') }}">
-                            <i class="align-middle mr-2 fa fa-fw fa-money-bill" style="color: #153d77"></i> <span class="align-middle">Expense Type</span>
-                        </a>
-                        <a class="sidebar-link" href="{{ url('sales_account') }}">
-                            <i class="align-middle mr-2 far fa-fw fa-user"></i> <span class="align-middle">Sales Account</span>
-                        </a>
-                        <a class="sidebar-link" href="{{ url('product') }}">
-                            <i class="align-middle mr-2 fa fa-fw fa-list" style="color: #153d77"></i> <span class="align-middle">Product and Services</span>
-                        </a>
-                    </li>
-                @endrole
             @endrole
         </ul>
     </div>
