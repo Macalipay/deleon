@@ -9,7 +9,7 @@
 	<meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
 	<meta name="author" content="Bootlab">
 	{{-- <link rel="icon" href="http://example.com/favicon.png"> --}}
-	<title>OpiMac Company</title>
+	<title>Deleon's Best</title>
 	<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="{{ asset('docs/css/modern.css') }}" rel="stylesheet"> 
