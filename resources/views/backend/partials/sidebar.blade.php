@@ -18,69 +18,56 @@
             
             @role('Super Admin|Sales Executive|Admin')
                 <li class="sidebar-header">
-                    Main
+                    Dashboard
                 </li>
-
                 <li class="sidebar-item">
-                    <a href="#dashboard" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fa fa-fw fa-chart-pie" style="color: #153d77"></i> <span class="align-middle">Dashboard</span>
+                    <a class="sidebar-link" href="{{ url('dashboard') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-chart-line"></i> <span class="align-middle">Daily</span>
                     </a>
-                    <ul id="dashboard" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('dashboard') }}">Daily</a></li>
-                        @role('Super Admin|Admin')
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('dashboard/monthly') }}">Monthly</a></li>
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('dashboard/masterfile') }}">Master File</a></li>
-                        @endrole
-                    </ul>
                 </li>
-
-                @role('Super Admin')
                 <li class="sidebar-item">
-                    <a href="#account" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fa fa-fw fa-user" style="color: #153d77"></i> <span class="align-middle">Manage Account</span>
+                    <a class="sidebar-link" href="{{ url('dashboard/monthly') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-chart-bar"></i> <span class="align-middle">Monthly</span>
                     </a>
-                    <ul id="account" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ ('user') }}">Users</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('#') }}">Roles And Permissions</a></li>
-                    </ul>
                 </li>
-
                 <li class="sidebar-item">
-                    <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fab fa-fw fa-chrome"></i> <span class="align-middle">Official Website</span>
+                    <a class="sidebar-link" href="{{ url('dashboard/masterfile') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Master File</span>
                     </a>
-                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="#">Food and Beverage</a></li>
-                    </ul>
                 </li>
-                @endrole
 
                 <li class="sidebar-header">
-                   Deleon's Best
+                   Sales Order
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ url('daily_sales') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-shopping-cart"></i> <span class="align-middle">Daily Sales</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ url('daily_sales/all') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-cart-plus"></i> <span class="align-middle">All Sales</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ url('payment') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-money-bill-wave"></i> <span class="align-middle">Payment</span>
+                    </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="#sales" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fas fa-fw fa-cart-plus"></i> <span class="align-middle">Sales Order</span>
-                    </a>
-                    <ul id="sales" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('daily_sales') }}">Daily Sales</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('daily_sales/all') }}">All Sales</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('payment') }}">Payment</a></li>
-                    </ul>
-                </li>
-
-                <li class="sidebar-item">
-                    <a href="#inventory" data-toggle="collapse" class="sidebar-link collapsed">
-                        <i class="align-middle mr-2 fas fa-fw fa-dolly-flatbed"></i> <span class="align-middle">Inventory</span>
-                    </a>
-                    <ul id="inventory" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="{{ url('inventory') }}">Inventory</a></li>
-                        @role('Super Admin|Admin')
-                            <li class="sidebar-item"><a class="sidebar-link" href="{{ url('inventory/view_add_stock') }}">Inventory Transaction</a></li>
-                        @endrole
-                    </ul>
-                </li>
+                <li class="sidebar-header">
+                    Inventory
+                 </li>
+                 <li class="sidebar-item">
+                     <a class="sidebar-link" href="{{ url('inventory') }}">
+                         <i class="align-middle mr-2 fas fa-fw fa-boxes"></i> <span class="align-middle">Inventory</span>
+                     </a>
+                 </li>
+                 <li class="sidebar-item">
+                     <a class="sidebar-link" href="{{ url('inventory/view_add_stock') }}">
+                         <i class="align-middle mr-2 fas fa-fw fa-truck-loading"></i> <span class="align-middle">Inventory Transaction</span>
+                     </a>
+                 </li>
             @endrole
         </ul>
     </div>

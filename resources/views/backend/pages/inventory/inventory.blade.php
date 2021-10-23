@@ -26,19 +26,12 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Action</th>
-                                                <th>Code</th>
                                                 <th>Name</th>
-                                                @role('Super Admin') 
-                                                <th>Total Count</th>
                                                 <th>Price</th>
-                                                @endrole
-                                                <th>Selling Price</th>
                                                 <th>Critical Level</th>
-                                                @role('Super Admin') 
-                                                <th>Sold</th>
-                                                @endrole
-                                                <th>Stock</th>
-                                                <th>Supplier</th>
+                                                <th>Quantity Stock</th>
+                                                <th>Type</th>
+                                                <th>Photo</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -48,24 +41,15 @@
                                                     <td>{{ ++$key}}</td>
                                                     <td class="table-action">
                                                         <a href="#" class="align-middle fas fa-fw fa-plus-circle add_stock" title="Add" data-toggle="modal" data-target="#stock_modal" id={{$inventory->id}}></a>
-                                                        @role('Super Admin') 
-                                                            <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$inventory->id}}></a>
-                                                            <a href="{{url('inventory/destroy/' . $inventory->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                                        @endrole
+                                                        <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$inventory->id}}></a>
+                                                        <a href="{{url('inventory/destroy/' . $inventory->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                                     </td>
-                                                    <td>{{ $inventory->consumable->code }}</td>
-                                                    <td>{{ $inventory->consumable->consumable }}</td>
-                                                    @role('Super Admin') 
-                                                    <td>{{ $inventory->total_count}}</td>
-                                                    <td>₱ {{ number_format($inventory->price, 2)}}</td>
-                                                    @endrole
-                                                    <td>₱ {{ number_format($inventory->selling_price, 2) }}</td>
+                                                    <td>{{ $inventory->name }}</td>
+                                                    <td>{{ $inventory->price }}</td>
                                                     <td>{{ $inventory->critical_level}}</td>
-                                                    @role('Super Admin') 
-                                                    <td>{{ $inventory->sold_count}}</td>
-                                                    @endrole
                                                     <td>{{ $inventory->quantity_stock}}</td>
-                                                    <td>{{ $inventory->supplier}}</td>
+                                                    <td>{{ $inventory->type}}</td>
+                                                    <td width="400px"> <img src="{{ asset('images/product/' . $inventory->photo)}}" alt="Food Picture" srcset="" style="width:10%; height:10%"> </td>
                                                     @if ($inventory->status == 'Good')
                                                         <td class="badge badge-success">{{ $inventory->status }}</td>
                                                     @elseif($inventory->status == 'Critical Level')
@@ -128,35 +112,51 @@
                         </button>
                     </div>
                     <div class="modal-body m-3">
-                        <form id="modal-form-inventory" action="{{url('inventory/save')}}" method="post">
+                        <form id="modal-form-inventory" action="{{url('inventory/save')}}" method="post" enctype="multipart/form-data">
                             @csrf
                         <div class="form-group col-md-12">
-                            <label for="inputPassword4">Consumable</label>
-                            <select class="form-control" id="consumable_id"  name="consumable_id">
-                                <option selected disabled>Select a Inventory</option>
-                                @foreach ($consumables as $consumable)
-                                    <option value="{{ $consumable->id }}">{{ $consumable->consumable }}</option>
-                                @endforeach
-                            </select>
+                            <label for="inputPassword4">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Description</label>
+                            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Price</label>
                             <input type="text" class="form-control" id="price" name="price" placeholder="Enter Price">
                         </div>
-
-                        <div class="form-group col-md-12">
-                            <label for="inputPassword4">Selling Price</label>
-                            <input type="text" class="form-control" id="selling_price" name="selling_price" placeholder="Enter Selling Price">
-                        </div>
-           
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Critical Level</label>
                             <input type="number" class="form-control" id="critical_level" name="critical_level" placeholder="Enter Critical Level">
                         </div>
-                       
                         <div class="form-group col-md-12">
-                            <label for="inputPassword4">Supplier</label>
-                            <input type="text" class="form-control" id="supplier" name="supplier" placeholder="Enter Supplier">
+                            <label for="inputPassword4">Quantity Stock</label>
+                            <input type="number" class="form-control" id="quantity_stock" name="quantity_stock" placeholder="Enter Quantity Stock">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Type</label>
+                            <select class="form-control" id="type"  name="type">
+                                <option selected disabled>Select Food Type</option>
+                                <option value="Food">Food</option>
+                                <option value="Drink">Drink</option>
+                                <option value="Desert">Desert</option>
+                                <option value="Pizza">Pizza</option>
+                                <option value="Pasta">Pasta</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Status</label>
+                            <select class="form-control" id="status"  name="status">
+                                <option selected disabled>Select Status</option>
+                                <option value="Good">Good</option>
+                                <option value="Critical Level">Critical Level</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Photo</label>
+                            <input type="file" class="form-control" id="photo" name="photo" placeholder="Enter Photo">
                         </div>
                     </div>
                     <div class="modal-footer">

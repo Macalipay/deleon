@@ -7,41 +7,37 @@ use Illuminate\Database\Eloquent\Model;
 class DailySale extends Model
 {
     protected $fillable = [
-        'customer_id',
-        'sales_id',
-        'product_id',
+        'user_id',
+        'order_id',
         'description',
-        'quantity',
         'amount',
-        'date',
         'balance',
-        'production_status',
         'payment_status',
-        'user_id'
+        'status',
     ];
 
-    public function customer()
+    public function inventory()
     {
-        return $this->belongsTo(Customer::class, 'customer_id');
+        return $this->belongsTo(Inventory::class, 'inventory_id');
     }
 
-    public function sales()
+    public function order()
     {
-        return $this->belongsTo(SalesAccount::class, 'sales_id');
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'product_id');
-    }
-
-    public function payment()
-    {
-        return $this->belongsTo(PaymentType::class, 'payment_id');
+        return $this->belongsTo(Order::class, 'order_id');
     }
 
     public function daily_payment()
     {
         return $this->hasMany(Payment::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function order_status()
+    {
+        return $this->hasOne(Order::class);
     }
 }

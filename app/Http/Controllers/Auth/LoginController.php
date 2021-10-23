@@ -20,13 +20,10 @@ class LoginController extends Controller
     }
 
     protected function authenticated($request, $user){
-        // if($user->hasRole('Super Admin')){
-        //     return redirect('/dashboard');
-        // } else {
-        //     return redirect('/selection');
-        // }
-
-        return redirect('/dashboard');
-
+        if(Auth::user()->designation == 'Admin'){
+            return redirect('/dashboard');
+        } else {
+            return redirect('/shop');
+        }
     }
 }

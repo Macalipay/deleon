@@ -21,8 +21,8 @@ table.dataTable thead th {
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Daily Sales
-                                <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#defaultModalPrimary" style="float:right">Add Order</button> 
-                                <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#customerModal" style="float:right">Add Client</button>
+                                {{-- <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#defaultModalPrimary" style="float:right">Add Order</button>  --}}
+                                {{-- <button type="button" class="btn btn-primary add mr-1" data-toggle="modal" data-target="#customerModal" style="float:right">Add Client</button> --}}
                             </h5>
                         </div>
                         @include('backend.partials.flash-message')
@@ -35,11 +35,7 @@ table.dataTable thead th {
                                                 <th>#</th>
                                                 <th>Action</th>
                                                 <th>Client Name</th>
-                                                <th>Sales</th>
-                                                <th>Product</th>
                                                 <th>Description</th>
-                                                <th>Production</th>
-                                                <th>Quantity</th>
                                                 <th>Amount</th>
                                                 <th>Balance</th>
                                                 <th>Payment</th>
@@ -51,27 +47,11 @@ table.dataTable thead th {
                                                     <td>{{ ++$key}}</td>
                                                     <td class="table-action">
                                                         <a href="#" class="align-middle fa fa-fw fa-money-bill paymentModal" title="Payment" data-toggle="modal" data-target="#paymentModal" id={{$daily_sale->id}}></a>
-                                                        <a href="#" class="align-middle fa fa-fw fa-tasks productionStatus" title="Production Status" data-toggle="modal" data-target="#productionStatus" id={{$daily_sale->id}}></a>
-                                                        <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$daily_sale->id}}></a>
+                                                        <a href="#" class="align-middle fa fa-fw fa-shopping-cart" onclick="orderList({{$daily_sale->id}})" title="List of Order" data-toggle="modal" data-target="#orderModal" id={{$daily_sale->id}}></a>
                                                         <a href="{{url('daily_sales/destroy/' . $daily_sale->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                                     </td>
-                                                    <td>{{ $daily_sale->customer->name}}</td>
-                                                    <td>{{ $daily_sale->sales->sales}}</td>
-                                                    <td>{{ $daily_sale->product->product}}</td>
+                                                    <td>{{ $daily_sale->user->firstname . ' ' . $daily_sale->user->lastname}}</td>
                                                     <td>{{ $daily_sale->description}}</td>
-                                                   
-                                                    @if ($daily_sale->production_status == 'Delivered')
-                                                        <td class="badge badge-success">{{ $daily_sale->production_status}}</td>
-                                                    @elseif($daily_sale->production_status == 'Layout in Progress')
-                                                        <td class="badge badge-warning">{{ $daily_sale->production_status}}</td>
-                                                    @elseif($daily_sale->production_status == 'For Printing')
-                                                        <td class="badge badge-secondary">{{ $daily_sale->production_status}}</td>
-                                                    @elseif($daily_sale->production_status == 'For Pick Up')
-                                                        <td class="badge badge-primary">{{ $daily_sale->production_status}}</td>
-                                                    @else 
-                                                        <td class="badge badge-danger">{{ $daily_sale->production_status}}</td>
-                                                    @endif
-                                                    <td>{{ $daily_sale->quantity}}</td>
                                                     <td>₱ {{ number_format($daily_sale->amount, 2) }}</td>
                                                     <td>₱ {{ number_format($daily_sale->balance, 2) }}</td>
                                                     @if ($daily_sale->payment_status == 'Paid')
@@ -103,40 +83,6 @@ table.dataTable thead th {
                     <div class="modal-body m-3">
                         <form id="modal-form" action="{{url('daily_sales/save')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-3 text-sm-right">Customer</label>
-                            <div class="col-sm-9">
-
-                                <div class="row col-12">
-                                    <input type="hidden" id="customer_id" name="customer_id" class="form-control col-10"/>
-                                    <input type="text" class="form-control col-10 customer_value" placeholder="Select Customer" disabled/>
-                                    <button type="button" class="btn btn-primary col-2" data-toggle="modal" data-target="#customerList"><i class="fas fa-search"></i></button>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-3 text-sm-right">Sales Acc.</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="sales_id"  name="sales_id" placeholder="Choose Sales Account">
-                                    <option selected disabled>Select a Sales</option>
-                                    @foreach ($sales as $sale)
-                                        <option value="{{ $sale->id }}">{{ $sale->sales }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-3 text-sm-right">Product Type</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="product_id"  name="product_id" placeholder="Choose Product">
-                                    <option selected disabled>Select a Product</option>
-                                    @foreach ($products as $product)
-                                        <option value="{{ $product->id }}">{{ $product->product }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-form-label col-sm-3 text-sm-right">Description</label>
                             <div class="col-sm-9">
@@ -183,40 +129,7 @@ table.dataTable thead th {
             </div>
         </div>
 
-         {{-- MODAL --}}
-         <div class="modal fade" id="productionStatus" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Production Status</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body m-3">
-                        <form id="modal-form-production" action="{{url('daily_sales/productionStatus')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group row">
-                            <label class="col-form-label col-sm-3 text-sm-right">Production Status</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="production_status">
-                                    <option value="No Artist">No Artist</option>
-                                    <option value="Layout in Progress">Layout in Progress</option>
-                                    <option value="For Printing">For Printing</option>
-                                    <option value="For Pick Up">For Pick Up</option>
-                                    <option value="Delivered">Delivered</option>
-                                  </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary submit-button-production">Add</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+       @include('backend.partials.order-modal')
 
         {{-- MODAL --}}
         <div class="modal fade" id="paymentStatus" tabindex="-1" role="dialog" aria-hidden="true">
@@ -273,11 +186,10 @@ table.dataTable thead th {
                         <div class="form-group row">
                             <label class="col-form-label col-sm-3 text-sm-right">Payment Type</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="payment_id"  name="payment_id" placeholder="Choose Product">
+                                <select class="form-control" id="payment"  name="payment" placeholder="Choose Product">
                                     <option selected disabled>Select a Payment</option>
-                                    @foreach ($paymenttypes as $paymenttype)
-                                        <option value="{{ $paymenttype->id }}">{{ $paymenttype->payment }}</option>
-                                    @endforeach
+                                    <option value="GCASH">GCASH</option>
+                                    <option value="CASH">CASH</option>
                                 </select>
                             </div>
                         </div>
@@ -296,39 +208,6 @@ table.dataTable thead th {
                 </div>
             </div>
         </div>
-
-        
-        <div class="modal fade" id="customerList" style="background: rgba(0,0,0,0.5);" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Customer</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body m-3">
-                        <table id="customer_table" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Customer Name</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($customers as $customer)
-                                <tr data-dismiss="modal" aria-label="Close" onclick="selectCustomer({{ $customer->id }}, '{{ $customer->name }}')">
-                                    <td>{{ $customer->name }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @include('backend.partials.customer_modal')
-        @include('backend.partials.rushfee_modal')
     </main>
 @endsection
 
@@ -360,28 +239,29 @@ table.dataTable thead th {
 
         }
 
-        function productionStatus(id){
-            $.ajax({
+        function orderList(id){
+            $('#orderTable').dataTable().fnDestroy();
+
+            $('#orderTable').DataTable({
+                
+                processing: true,
+                serverSide: true,
+                ajax: {
+                url: "order/show/" + id,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/daily_sales/edit/' + id,
-                method: 'get',
-                data: {
-
+                type: 'POST',
                 },
-                success: function(data) {
-                    $('#modal-form-production').attr('action', 'daily_sales/productionStatus/' + data.products.id);
-                    $('.modal-title').text('Production Status');
-                    $('.submit-button-production').text('Update');
-                        $.each(data, function() {
-                            $.each(this, function(k, v) {
-                                $('#'+k).val(v);
-                            });
-                        });
-                }
+                columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'inventory.name', name: 'inventory.name' },
+                        {data: 'quantity', name: 'quantity' },
+                        {data: 'amount', name: 'amount' },
+                        {data: 'total', name: 'total' },
+                    ],
+                order: [[0, 'desc']]
             });
-
         }
 
         function paymentStatus(id){
@@ -389,19 +269,16 @@ table.dataTable thead th {
         }
 
         $(function() {
-            $('#datatables').DataTable({
+            $('#datatables, #orderTable').DataTable({
                 "scrollX": true,
                 "pageLength": 100
             });
+
             $('#customer_table').DataTable();
 
 
             $( "table" ).on( "click", ".paymentModal", function() {
                 paymentStatus(this.id);
-            });
-
-            $( "table" ).on( "click", ".productionStatus", function() {
-                productionStatus(this.id);
             });
 
             $( "table" ).on( "click", ".edit", function() {

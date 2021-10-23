@@ -17,8 +17,7 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::orderBy('id', 'desc')->get();
-        $payment_types = PaymentType::orderBy('id', 'desc')->get();
-        return view('backend.pages.crm.payment', compact('payments', 'payment_types'));
+        return view('backend.pages.payment.payment', compact('payments'));
     }
 
     public function store(Request $request)
@@ -26,7 +25,7 @@ class PaymentController extends Controller
         $payment = $request->validate([
             'dailysales_id' => [ 'required', 'max:250'],
             'amount' => ['between:0,99.99', 'required', 'max:250'],
-            'payment_id' => ['required', 'max:250'],
+            'payment' => ['required', 'max:250'],
             'date' => ['required', 'max:250'],
         ]);
 
@@ -35,7 +34,7 @@ class PaymentController extends Controller
         $current_balance = $daily_sale->balance - $request->amount;
 
         if($current_balance <= 0) {
-            DailySale::where('id', $request->dailysales_id)->update(['balance' => $current_balance, 'payment_status' => 'Paid']);
+            DailySale::where('id', $request->dailysales_id)->update(['balance' => $current_balance, 'payment_status' => 'Paid', 'status' => 'Delivered']);
         } else {
             DailySale::where('id', $request->dailysales_id)->update(['balance' => $current_balance, 'payment_status' => 'Unpaid']);
         }

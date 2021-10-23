@@ -15,8 +15,8 @@
                 </a>
                 
             </li>
-    <span class="indicator"></span>
-  </a>
+                <span class="indicator"></span>
+            </a>
             </li>
             <li class="nav-item dropdown ml-lg-2">
                 <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-toggle="dropdown">

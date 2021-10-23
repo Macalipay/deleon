@@ -13,29 +13,39 @@ class InventoryController extends Controller
     public function index()
     {
         $inventories = Inventory::orderBy('id', 'asc')->get();
-        $consumables = Consumable::orderBy('id')->get();
-        return view('backend.pages.inventory.inventory', compact('inventories', 'consumables'));
+        return view('backend.pages.inventory.inventory', compact('inventories'));
     }
 
     public function view_add_stock()
     {
         $add_stocks = InventoryTransaction::orderBy('id', 'desc')->get();
-        $consumables = Consumable::orderBy('id')->get();
         return view('backend.pages.inventory.inventory_transaction', compact('add_stocks', 'consumables'));
     }
 
     public function store(Request $request)
     {
         $inventory = $request->validate([
-            'consumable_id' => ['required', 'max:250'],
+            'name' => ['required', 'max:250', 'unique:inventories'],
+            'description' => ['required', 'max:250'],
             'price' => ['required', 'max:250'],
-            'selling_price' => ['required', 'max:250'],
             'critical_level' => ['required', 'max:250'],
-            'supplier' => ['required', 'max:250'],
+            'quantity_stock' => ['required', 'max:250'],
+            'status' => ['required', 'max:250'],
+            'type' => ['required', 'max:250'],
+            'photo' => ['required'],
         ]);
 
-        $request->request->add(['created_user' => Auth::user()->id]);
-        Inventory::create($request->all());
+
+        $file = $request->photo->getClientOriginalName();
+        $filename = pathinfo($file, PATHINFO_FILENAME);
+
+        $imageName = $filename.time().'.'.$request->photo->extension();  
+        $image = $request->photo->move(public_path('images/product'), $imageName);
+
+        $requestData = $request->all();
+        $requestData['photo'] = $imageName;
+
+        Inventory::create($requestData);
 
         return redirect()->back()->with('success','Successfully Added');
     }
@@ -48,19 +58,17 @@ class InventoryController extends Controller
             'date' => ['required', 'max:250'],
         ]);
 
-        $request->request->add(['created_user' => Auth::user()->id]);
         InventoryTransaction::create($request->all());
 
         $inventory_item = Inventory::where('id', $request->inventory_id)->first();
         $quantity_stock = $inventory_item->quantity_stock + $request->quantity;
-        $total_count = $inventory_item->total_count + $request->quantity;
 
         if($quantity_stock > $inventory_item->critical_level) {
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count ,'quantity_stock' => $quantity_stock, 'status' => 'Good']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Good']);
         } else if ($quantity_stock <= $inventory_item->critical_level && $quantity_stock > 0) {
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count , 'quantity_stock' => $quantity_stock, 'status' => 'Critical Level']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Critical Level']);
         } else {
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count , 'quantity_stock' => $quantity_stock, 'status' => 'Out of Stock']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Out of Stock']);
         }
 
         return redirect()->back()->with('success','Successfully Added');
@@ -93,18 +101,15 @@ class InventoryController extends Controller
         $quantity_stock = $inventory_item->quantity_stock - $stock->quantity;
         $quantity_stock_latest = $quantity_stock + $request->quantity;
 
-        $total_count = $inventory_item->total_count - $stock->quantity;
-        $total_count_latest = $total_count + $request->quantity;
-
         if($quantity_stock_latest > $inventory_item->critical_level) {
             InventoryTransaction::find($id)->update($request->all());
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count_latest ,'quantity_stock' => $quantity_stock_latest, 'status' => 'Good']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock_latest, 'status' => 'Good']);
         } else if ($quantity_stock_latest < $inventory_item->critical_level && $quantity_stock_latest > 0) {
             InventoryTransaction::find($id)->update($request->all());
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count_latest , 'quantity_stock' => $quantity_stock_latest, 'status' => 'Critical Level']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock_latest, 'status' => 'Critical Level']);
         } else {
             InventoryTransaction::find($id)->update($request->all());
-            Inventory::where('id', $request->inventory_id)->update(['total_count' => $total_count_latest , 'quantity_stock' => $quantity_stock_latest, 'status' => 'Out of Stock']);
+            Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock_latest, 'status' => 'Out of Stock']);
         }
 
         return redirect()->back()->with('success','Successfully Updated');

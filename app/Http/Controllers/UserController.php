@@ -48,7 +48,6 @@ class UserController extends Controller
 
     public function changepass(Request $request)
     {
-       
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
             'new_password' => ['required'],

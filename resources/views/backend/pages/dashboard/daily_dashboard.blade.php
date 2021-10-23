@@ -91,26 +91,26 @@
            
             <div class="row">
                 <div class="col-12 col-lg-12 d-flex">
-                    <div class="card flex-fill">
+                    <div class="card flex-fill" style="padding:30px">
                         <div class="card-header">
                             <h5 class="card-title mb-0">Client who pay today. </h5>
                         </div>
-                        <table id="datatables" class="table table-striped my-0">
+                        <table id="datatables" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th class="d-none d-xl-table-cell">Name</th>
-                                    <th class="d-none d-xl-table-cell">Amount</th>
-                                    <th class="d-none d-xl-table-cell">Payment Type</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                    <th>Payment Type</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($payments as $key => $payment)
                                     <tr>
                                         <td>{{ ++$key}}</td>
-                                        <td>{{ $payment->dailysale->customer->name }}</td>
+                                        <td>{{ $payment->dailysale->user->firstname }}</td>
                                         <td>₱ {{ $payment->amount}}</td>
-                                        <td>{{ $payment->paymentType->payment}}</td>
+                                        <td>{{ $payment->payment }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

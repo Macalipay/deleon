@@ -16,10 +16,7 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-        $clients = Client::where('status', '=', '1')->orderBy('id')->get();
-        $tutorials = Tutorial::orderBy('id')->get();
-        $supports = Support::orderBy('id')->get();
-        return view('frontend.master.template', compact('clients', 'tutorials', 'supports'));
+        return view('frontend.master.template');
     }
 
     /**

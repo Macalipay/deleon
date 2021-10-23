@@ -15,20 +15,15 @@ class CreateInventoriesTable extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('consumable_id');
-            $table->string('total_count')->default(0);
+            $table->string('name');
+            $table->longText('description');
             $table->decimal('price', 13, 2);
-            $table->decimal('selling_price', 13, 2);
             $table->string('critical_level')->default(0);
-            $table->string('sold_count')->default(0);
             $table->string('quantity_stock')->default(0);
-            $table->string('supplier')->nullable();
-            $table->string('status')->default('Critical Level');
+            $table->string('type');
+            $table->string('status')->default('Out of Stock');
+            $table->string('photo');
             $table->timestamps();
-
-            $table->foreign('consumable_id')
-                ->references('id')
-                ->on('consumables');
         });
     }
 

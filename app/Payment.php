@@ -9,7 +9,7 @@ class Payment extends Model
     protected $fillable = [
         'dailysales_id',
         'amount',
-        'payment_id',
+        'payment',
         'status',
         'date',
     ];

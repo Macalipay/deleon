@@ -15,28 +15,17 @@ class CreateDailySalesTable extends Migration
     {
         Schema::create('daily_sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('sales_id');
-            $table->unsignedBigInteger('product_id');
-            $table->text('description');
-            $table->string('quantity');
+            $table->unsignedBigInteger('user_id');
+            $table->text('description')->nullable();
             $table->decimal('amount', 13, 2);
             $table->decimal('balance', 13, 2)->default(0.00);
-            $table->string('production_status');
             $table->string('payment_status');
+            $table->string('status');
             $table->timestamps();
 
-            $table->foreign('customer_id')
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('customers');
-
-            $table->foreign('sales_id')
-                ->references('id')
-                ->on('sales_accounts');
-
-            $table->foreign('product_id')
-                ->references('id')
-                ->on('products');
+                ->on('users');
         });
     }
 

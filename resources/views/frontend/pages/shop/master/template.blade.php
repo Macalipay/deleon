@@ -3,11 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Deleon's Best</title>
 <link rel="stylesheet" href="{{ asset('opimac/html/assets/css/main.css')}}">
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
 </head>
 <body>
 @include('frontend.pages.shop.partials.sidebar')
@@ -38,366 +43,7 @@
 
   
 <!-- Footer -->
-<div id="popup-1" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"> <img src="assets/images/product-img/product-big-1.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4 p-0">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4 p-0">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-2" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"> <img src="assets/images/product-img/engine.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4 p-0">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4 p-0">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-3" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6"> <img src="assets/images/product-img/silencer.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-4" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"><img src="assets/images/product-img/headlight.jpg" alt="" title="" class="img-fluid"></div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-5" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"> <img src="assets/images/product-img/engineering.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-6" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"><img src="assets/images/product-img/tools.jpg" alt="" title="" class="img-fluid"></div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-7" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6 text-center"> <img src="assets/images/product-img/filtre.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-8" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6"> <img src="assets/images/product-img/set-cover2.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="popup-9" class="popup-fcy">
-  <div class="row">
-    <div class="col-md-6"> <img src="assets/images/product-img/set-cover.jpg" alt="" title="" class="img-fluid"> </div>
-    <div class="col-md-6">
-      <div class="product_meta">
-        <p><span>Availability </span> : not in Stock</p>
-        <p><span>Categories </span> : Foods</p>
-        <p><span>Tags </span> : Drink and Beverage</p>
-      </div>
-      <div class="product-dis">
-        <h3>Products Name</h3>
-        <hr>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>
-        <div class="row">
-          <div class="col-2 pr-0">
-            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-          </div>
-          <div class="col-10">
-            <div class="wrap_compare">
-              <div class="row">
-                <div class="col-6">
-                  <div class="add_to_cart"><a href="cart.html" class="">ADD TO CART</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 mt-4">
-            <hr class="m-0 p-0">
-          </div>
-          <div class="pb-3 pt-3">
-            <div class="left-icon"> <a href="" class="mr-1"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
-          </div>
-          <div class="col-md-12 mb-4">
-            <hr class="m-0 p-0">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <script src="{{ asset('opimac/html/assets/js/ajax.js')}}"></script>
 <script src="{{ asset('opimac/html/assets/js/formValidation.js')}}"></script>
 <script src="{{ asset('opimac/html/assets/vendor/jquery/jquery.min.js')}}"></script>
@@ -421,7 +67,81 @@
 <script src="{{ asset('opimac/html/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{ asset('opimac/html/assets/vendor/side-menu/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{ asset('opimac/html/assets/vendor/side-menu/side-menu.js')}}"></script>
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
+<script>
+   function shoppingBag(){
+      $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/shop/shopping_bag',
+            method: 'get',
+            success: function(data) {
+              var order = data.orders;
+               $('#order_list').empty();
+               $('#total_price').empty();
+               $('#total_price').append(data.sale.amount);
+               for (let index = 0; index < order.length; index++) {
+                  $('#order_list').append('<div style="display: flex; text-indent: 20px;"><p>' + order[index].inventory.name + 
+                                            '<span class="price">'+ order[index].total +'</span>'+
+                                            '<span class="price">'+ order[index].quantity +'</span>'+
+                                            '<span class="price">'+ order[index].amount +'</span></div></p> ');
+               }
+            }
+        });
+   }
+
+   function checkOut(){
+    var message = prompt("Enter Note or Description", "No Message");
+      $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/shop/check_out',
+            method: 'get',
+            data: {
+              description: message
+            },
+            success: function(data) {
+              
+            }
+        });
+   }
+
+   function orderList(id){
+            $('#orderTable').dataTable().fnDestroy();
+
+            $('#orderTable').DataTable({
+                
+                processing: true,
+                serverSide: true,
+                ajax: {
+                url: "/order/show/" + id,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                },
+                columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'inventory.name', name: 'inventory.name' },
+                        {data: 'quantity', name: 'quantity' },
+                        {data: 'amount', name: 'amount' },
+                        {data: 'total', name: 'total' },
+                    ],
+                order: [[0, 'desc']]
+            });
+        }
+
+      $(function() {
+            $('#orderTable').DataTable({
+                "scrollX": true,
+                "pageLength": 100
+            });
+        });
+</script>
+@yield('scripts')
 <p data-toggle="modal" class="no-margin" data-target="#myModal" id="model2"></p>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-dialog2">

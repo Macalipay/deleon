@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DailySale;
-use App\Customer;
-use App\PaymentType;
-use App\Product;
-use App\SalesAccount;
+use App\Inventory;
 use Auth;
 use Carbon\Carbon;
 use App\Payment;
@@ -17,55 +14,32 @@ class DailySaleController extends Controller
     public function index()
     {
         $dt = Carbon::now();
-        $daily_sales = DailySale::where('production_status', '!=', 'Delivered')->orWhere('payment_status', '!=', 'Paid')->orderBy('id', 'desc')->get();
-        $customers = Customer::orderBy('id')->get();
-        $paymenttypes = PaymentType::orderBy('id')->get();
-        $products = Product::orderBy('id')->get();
-        $sales = SalesAccount::orderBy('id')->get();
-        $total_order = DailySale::where('production_status', '!=', 'Delivered')->OrWhere('payment_status', '!=', 'Paid')->count();
-        $no_artist = DailySale::where('production_status', 'No Artist')->count();
-        $delivery = DailySale::where('production_status', 'For Pick Up')->count();
-        $in_progress = DailySale::where('production_status', 'Layout in Progress')->count();
-        $for_printing = DailySale::where('production_status', 'For Printing')->count();
-        $daily_sale = Payment::where('date', $dt->toDateString())->sum('amount');
-        $unpaid = DailySale::where('payment_status', 'Unpaid')->sum('balance');
-        return view('backend.pages.sales.daily_sales', compact('daily_sales', 'customers', 'paymenttypes', 'products', 'sales','total_order', 'no_artist',
-                     'in_progress', 'delivery', 'for_printing', 'daily_sale', 'unpaid'));
+        $daily_sales = DailySale::where('payment_status', '!=', 'Paid')->where('status', 'Check Out')->orderBy('id', 'desc')->get();
+        $inventories = Inventory::orderBy('id')->get();
+        return view('backend.pages.sales.daily_sales', compact('daily_sales', 'inventories'));
     }
 
     public function all()
     {
         $dt = Carbon::now();
-        $daily_sales = DailySale::where('production_status', 'Delivered')->where('payment_status', 'Paid')->orderBy('id', 'desc')->get();
-        $customers = Customer::orderBy('id')->get();
-        $paymenttypes = PaymentType::orderBy('id')->get();
-        $products = Product::orderBy('id')->get();
-        $sales = SalesAccount::orderBy('id')->get();
-        $total_order = DailySale::where('production_status', '!=', 'Delivered')->OrWhere('payment_status', '!=', 'Paid')->count();
-        $no_artist = DailySale::where('production_status', 'No Artist')->count();
-        $delivery = DailySale::where('production_status', 'For Delivery')->count();
-        $in_progress = DailySale::where('production_status', 'Layout in Progress')->count();
-        $for_printing = DailySale::where('production_status', 'For Printing')->count();
+        $daily_sales = DailySale::orderBy('id', 'desc')->get();
         $daily_sale = Payment::where('date', $dt->toDateString())->sum('amount');
         $unpaid = DailySale::where('payment_status', 'Unpaid')->sum('balance');
-        return view('backend.pages.sales.all_sales', compact('daily_sales', 'customers', 'paymenttypes', 'products', 'sales', 'total_order', 
-                    'no_artist', 'in_progress', 'delivery', 'for_printing', 'daily_sale', 'unpaid'));
+        return view('backend.pages.sales.all_sales', compact('daily_sales', 'daily_sale', 'unpaid'));
     }
 
     public function store(Request $request)
     {
         $product = $request->validate([
-            'customer_id' => ['required', 'max:250'],
-            'sales_id' => ['required', 'max:250'],
-            'product_id' => ['required', 'max:250'],
+            'user_id' => ['required', 'max:250'],
+            'inventory_id' => ['required', 'max:250'],
             'description' => ['required', 'max:250'],
-            'quantity' => ['required', 'max:250'],
-            'date' => ['required', 'max:250'],
-            'amount' => ['between:0,99.99', 'required', 'max:250'],
-            'production_status' => ['required', 'max:250'],
+            'amount' => ['required', 'max:250'],
+            'balance' => ['required', 'max:250'],
+            'payment_status' => ['required', 'max:250'],
         ]);
 
-        $request->request->add(['balance' => $request->amount, 'user_id' => Auth::user()->id]);
+        $request->request->add(['balance' => $request->amount]);
         
         DailySale::create($request->all());
 

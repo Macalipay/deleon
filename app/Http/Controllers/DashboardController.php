@@ -17,16 +17,13 @@ class DashboardController extends Controller
         $dt = Carbon::now();
         $payments = Payment::where('date', $dt->toDateString())->orderBy('id', 'desc')->get();
         $daily_sale = Payment::where('date', $dt->toDateString())->sum('amount');
-        $expense = Expense::where('date', $dt->toDateString())->sum('amount');
-        $bpi = Payment::where('date', $dt->toDateString())->where('payment_id', 1)->sum('amount');
-        $bdo = Payment::where('date', $dt->toDateString())->where('payment_id', 2)->sum('amount');
-        $gcash = Payment::where('date', $dt->toDateString())->where('payment_id', 3)->sum('amount');
-        $cash = Payment::where('date', $dt->toDateString())->where('payment_id', 4)->sum('amount');
+        $bpi = Payment::where('date', $dt->toDateString())->where('payment', 'BPI')->sum('amount');
+        $bdo = Payment::where('date', $dt->toDateString())->where('payment', 'BDO')->sum('amount');
+        $gcash = Payment::where('date', $dt->toDateString())->where('payment', 'GCASH')->sum('amount');
+        $cash = Payment::where('date', $dt->toDateString())->where('payment', 'CASH')->sum('amount');
         $unpaid = DailySale::where('payment_status', 'Unpaid')->sum('balance');
-        $rushfee = RushFee::sum('amount');
 
-
-        return view('backend.pages.dashboard.daily_dashboard', compact('unpaid', 'payments', 'daily_sale', 'bpi', 'bdo', 'gcash', 'cash', 'dt', 'expense', 'rushfee'));
+        return view('backend.pages.dashboard.daily_dashboard', compact('unpaid', 'payments', 'daily_sale', 'bpi', 'bdo', 'gcash', 'cash', 'dt'));
     }
 
     public function filtering($date)

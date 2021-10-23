@@ -7,29 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'consumable_id',
-        'total_count',
+        'name',
+        'description',
         'price',
-        'selling_price',
         'critical_level',
-        'sold_count',
         'quantity_stock',
-        'supplier',
+        'type',
         'status',
+        'photo',
     ];
-
-    public function consumable()
-    {
-        return $this->belongsTo(Consumable::class, 'consumable_id');
-    }
 
     public function inventory_transaction()
     {
         return $this->hasMany(InventoryTransaction::class);
     }
 
-    public function inventory_consumable()
+    public function dailySale()
     {
-        return $this->hasOne(ConsumableDetails::class);
+        return $this->hasMany(DailySale::class);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
     }
 }
