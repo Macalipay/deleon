@@ -26,12 +26,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ url('dashboard/monthly') }}">
+                    <a class="sidebar-link" href="#">
                         <i class="align-middle mr-2 fas fa-fw fa-chart-bar"></i> <span class="align-middle">Monthly</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ url('dashboard/masterfile') }}">
+                    <a class="sidebar-link" href="#">
                         <i class="align-middle mr-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Master File</span>
                     </a>
                 </li>

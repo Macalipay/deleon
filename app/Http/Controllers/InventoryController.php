@@ -19,7 +19,7 @@ class InventoryController extends Controller
     public function view_add_stock()
     {
         $add_stocks = InventoryTransaction::orderBy('id', 'desc')->get();
-        return view('backend.pages.inventory.inventory_transaction', compact('add_stocks', 'consumables'));
+        return view('backend.pages.inventory.inventory_transaction', compact('add_stocks'));
     }
 
     public function store(Request $request)
