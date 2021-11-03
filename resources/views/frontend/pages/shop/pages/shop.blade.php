@@ -14,18 +14,96 @@
       </div>
       <div class="clearfix"></div>
     </nav>
+
     <div class="row">
-      <div class="col-lg-12 col-md-12">
+        <div class="col-12">
+        <div class="right-heading">
+          <div class="row">
+            <div class="col-md-4 col-4">
+              <h3>PROMO</h3>
+            </div>
+            <div class="col-md-8 col-8">
+              <div class="product-filter">
+                <!-- <div class="view-method"> <a href="" id="grid"><i class="fa fa-th-large"></i></a> <a href="" id="list"><i class="fa fa-list"></i></a> </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="item col-lg-4 col-md-4 mb-4 mb-4" >
+            <div class="thumbnail card product">
+              <div class="img-event"> <a class="group list-group-image img-fluid" href="#"><img src="{{('img/product/Milktea.jpg')}}" alt="" class="img-fluid" style="width: 300px; height: 300px" ></a> </div>
+              <div class="caption card-body">
+                <h3 class="product-type">test</h3>
+                <h4 class="product-name">try</h4>
+                <h4 class="product-name">asd</h4>
+                <div class="row m-0 list-n">
+                  <div class="col-12 p-0">
+                    <h5 class="product-price">₱ 100</h5>
+                  </div>
+                  <div class="col-12 p-0">
+                    <div class="product-price">
+                      <form class="form-inline">
+                        <div class="stepper-widget">
+                          <button type="button" class="js-qty-down">-</button>
+                          <input type="text" class="js-qty-input quantity" value="1"/>
+                          <button type="button" class="js-qty-up">+</button>
+                          <button type="button" class="add2"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-select">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item col-lg-4 col-md-4 mb-4 mb-4" >
+            <div class="thumbnail card product">
+              <div class="img-event"> <a class="group list-group-image img-fluid" href="#"><img src="{{('img/product/carbonara.jpg')}}" alt="" class="img-fluid" style="width: 300px; height: 300px" ></a> </div>
+              <div class="caption card-body">
+                <h3 class="product-type">test</h3>
+                <h4 class="product-name">try</h4>
+                <h4 class="product-name">asd</h4>
+                <div class="row m-0 list-n">
+                  <div class="col-12 p-0">
+                    <h5 class="product-price">₱ 100</h5>
+                  </div>
+                  <div class="col-12 p-0">
+                    <div class="product-price">
+                      <form class="form-inline">
+                        <div class="stepper-widget">
+                          <button type="button" class="js-qty-down">-</button>
+                          <input type="text" class="js-qty-input quantity" value="1"/>
+                          <button type="button" class="js-qty-up">+</button>
+                          <button type="button" class="add2"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-select">
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-9 col-md-9">
         <div class="row">
           <div class="col-12">
             <div class="right-heading">
               <div class="row">
                 <div class="col-md-4 col-4">
-                  <h3>Shop Grid</h3>
+                  <h3>Shop</h3>
                 </div>
                 <div class="col-md-8 col-8">
                   <div class="product-filter">
-                    <div class="view-method"> <a href="" id="grid"><i class="fa fa-th-large"></i></a> <a href="" id="list"><i class="fa fa-list"></i></a> </div>
+                    <!-- <div class="view-method"> <a href="" id="grid"><i class="fa fa-th-large"></i></a> <a href="" id="list"><i class="fa fa-list"></i></a> </div> -->
                   </div>
                 </div>
               </div>
@@ -68,6 +146,77 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="col-lg-3 col-md-3" style="border:gray 1px solid">
+         <center class="mb-4">List of Order</center>
+         <div class="row">
+            <div class="col-lg-3 col-md-3"> 
+                Milktea 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                3 pcs 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                120 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                360 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                Milktea 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                3 pcs 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                120 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                360 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                Milktea 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                3 pcs 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                120 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                360 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                Milktea 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                3 pcs 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                120 
+            </div>
+
+            <div class="col-lg-3 col-md-3"> 
+                360 
+            </div>
+
+         </div>
+         <div class="btn btn-primary mt-5">Check Out</div>
       </div>
     </div>
     <div class="clearfix"></div>

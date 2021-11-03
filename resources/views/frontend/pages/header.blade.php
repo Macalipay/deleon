@@ -7,7 +7,7 @@
           <h1 class="wow fadeIn" data-wow-delay=".8s">Deleon's Best</h1>
           <div class="box-promo">
             <div class="unit unit-spacing-md align-items-center justify-content-center justify-content-xl-start">
-              <div class="unit-left wow fadeIn" data-wow-delay="1s"><a class="button button-shadow" style="color:#01539d; border-color:#fdb818 ; background:#fdb818" href="{{url('shop')}}" style="color: white">ORDER NOW!</a></div>
+              <div class="unit-left wow fadeIn" data-wow-delay="1s"><a class="button button-shadow" style="color:#01539d; border-color:#fdb818 ; background:#fdb818" href="{{url('shop')}}" style="color: white">VIEW MENU!</a></div>
             </div>
             <div class="box-divided block-sm wow fadeIn" data-wow-delay="1.3s"><span class="box-divided-line"></span>
               <p class="big box-divided-text" style="color: white">Delicious Home Food. We provide quality and delicious food to our valued customers.</p>
@@ -196,9 +196,9 @@
                 <path d="M74.5457 194L74.5457 186.355" stroke="#07893C" stroke-width="1.2"></path>
               </svg>
             </div>
-            <div class="box-samples-img box-samples-img-1 wow fadeIn" data-wow-delay="1.8s"><img class="img-classic" src="{{ asset('img/product/pizza1.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: 90,  &quot;smoothness&quot;: 30}" style="stroke: white 20px solid;"/> </div>
-            <div class="box-samples-img box-samples-img-2 wow fadeIn" data-wow-delay="2s"><img class="img-classic" src="{{ asset('img/product/pizza2.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: -90,  &quot;smoothness&quot;: 30}"/> </div>
-            <div class="box-samples-img box-samples-img-3 wow fadeIn" data-wow-delay="2.2s"><img class="img-classic" src="{{ asset('img/product/pizza3.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: -90,  &quot;smoothness&quot;: 30}"/> </div>
+            <div class="box-samples-img box-samples-img-1 wow fadeIn" data-wow-delay="1.8s"><img class="img-classic" src="{{ asset('img/product/carbonara.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: 90,  &quot;smoothness&quot;: 30}" style="stroke: white 20px solid;"/> </div>
+            <div class="box-samples-img box-samples-img-2 wow fadeIn" data-wow-delay="2s"><img class="img-classic" src="{{ asset('img/product/Milktea.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: -90,  &quot;smoothness&quot;: 30}"/> </div>
+            <div class="box-samples-img box-samples-img-3 wow fadeIn" data-wow-delay="2.2s"><img class="img-classic" src="{{ asset('img/product/pizza1.jpg') }}" alt="" width="413" height="566" data-parallax-scroll="{&quot;y&quot;: -90,  &quot;smoothness&quot;: 30}"/> </div>
           </div>
         </div>
       </div>
