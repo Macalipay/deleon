@@ -68,20 +68,14 @@
     <div class="clearfix"></div>
   </nav>
 
-  <div class="container search-div">
-    <div class="row">
-      <div class="col-lg-4 col-md-4">
-        <div class="all-cate custom-select2">
-          <select>
-            <option>Pizza</option>
-            <option>Pasta</option>
-            <option>Drinks</option>
-            <option>Combo Meal</option>
-            <option> Heavy Meal </option>
-            <option> Dessert</option>
-            <option> Promo </option>
-          </select>
-        </div>
-      </div>
+  <div class="container">
+    <div class="row" >
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Promo</button> 
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Pizza</button>
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Pasta</button>
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Drinks</button>
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Combo Meal</button>
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Heavy Meal</button>
+        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Dessert</button>
     </div>
   </div>
