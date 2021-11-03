@@ -35,9 +35,9 @@
             <div class="thumbnail card product">
               <div class="img-event"> <a class="group list-group-image img-fluid" href="#"><img src="{{('img/product/Milktea.jpg')}}" alt="" class="img-fluid" style="width: 300px; height: 300px" ></a> </div>
               <div class="caption card-body">
-                <h3 class="product-type">test</h3>
-                <h4 class="product-name">try</h4>
-                <h4 class="product-name">asd</h4>
+                <h3 class="product-type">Milktea</h3>
+                <h4 class="product-name">Okinawa</h4>
+                <h4 class="product-name">20% Discount</h4>
                 <div class="row m-0 list-n">
                   <div class="col-12 p-0">
                     <h5 class="product-price">₱ 100</h5>
@@ -65,9 +65,9 @@
             <div class="thumbnail card product">
               <div class="img-event"> <a class="group list-group-image img-fluid" href="#"><img src="{{('img/product/carbonara.jpg')}}" alt="" class="img-fluid" style="width: 300px; height: 300px" ></a> </div>
               <div class="caption card-body">
-                <h3 class="product-type">test</h3>
-                <h4 class="product-name">try</h4>
-                <h4 class="product-name">asd</h4>
+                <h3 class="product-type">Pasta</h3>
+                <h4 class="product-name">Carbonara</h4>
+                <h4 class="product-name">Buy 1 Take 1 Promo!!!</h4>
                 <div class="row m-0 list-n">
                   <div class="col-12 p-0">
                     <h5 class="product-price">₱ 100</h5>
