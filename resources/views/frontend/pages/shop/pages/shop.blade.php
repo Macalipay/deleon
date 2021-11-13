@@ -39,8 +39,7 @@
                 <div class="thumbnail card product">
                   <div class="img-event"> <a class="group list-group-image img-fluid" href="#"><img src="{{('images/product/' . $product->photo)}}" alt="" class="img-fluid" style="width: 300px; height: 300px" ></a> </div>
                   <div class="caption card-body">
-                    <h3 class="product-type">{{ $product->type }}</h3>
-                    <h4 class="product-name">{{ $product->name }}</h4>
+                    <h3 class="product-type">{{ $product->name }}</h3>
                     <h4 class="product-name">{{ $product->description }}</h4>
                     <div class="row m-0 list-n">
                       <div class="col-12 p-0">
