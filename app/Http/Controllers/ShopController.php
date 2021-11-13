@@ -19,7 +19,18 @@ class ShopController extends Controller
     public function index()
     {
         $products = Inventory::where('status', '!=', 'Out of Stock')->get();
-        return view('frontend.pages.shop.pages.shop', compact('products'));
+
+        if(!Auth::guest()) {
+            $sale = DailySale::where('user_id', Auth::user()->id)->where('payment_status', 'Unpaid')->first();
+            if($sale != null) {
+                $orders = Order::with('inventory')->where('daily_sale_id', $sale->id)->get();
+            } else {
+                $orders = Order::with('inventory')->where('daily_sale_id', 1000)->get();
+            }
+        } else {
+            $orders = Order::with('inventory')->where('daily_sale_id', 1000)->get();
+        }
+        return view('frontend.pages.shop.pages.shop', compact('products', 'orders'));
     }
 
     public function history()

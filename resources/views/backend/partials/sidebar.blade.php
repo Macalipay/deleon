@@ -26,12 +26,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#">
+                    <a class="sidebar-link" href="{{ url('dashboard/monthly') }}">
                         <i class="align-middle mr-2 fas fa-fw fa-chart-bar"></i> <span class="align-middle">Monthly</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="#">
+                    <a class="sidebar-link" href="{{ url('dashboard/masterfile') }}">
                         <i class="align-middle mr-2 fas fa-fw fa-chart-pie"></i> <span class="align-middle">Master File</span>
                     </a>
                 </li>
@@ -54,7 +54,11 @@
                         <i class="align-middle mr-2 fas fa-fw fa-money-bill-wave"></i> <span class="align-middle">Payment</span>
                     </a>
                 </li>
-
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ url('promo') }}">
+                        <i class="align-middle mr-2 fas fa-fw fa-money-bill-wave"></i> <span class="align-middle">Promo</span>
+                    </a>
+                </li>
                 <li class="sidebar-header">
                     Inventory
                  </li>

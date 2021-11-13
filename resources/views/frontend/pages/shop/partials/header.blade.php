@@ -31,7 +31,7 @@
                 </div>
             @endif
             </li>
-            <li class="dropdown" onclick="shoppingBag();"> <a class="dropdown-toggle link" href="" data-toggle="dropdown"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span class="circle-2">1</span></a>
+            <li class="dropdown shoppingbag" > <a class="dropdown-toggle link" href="" data-toggle="dropdown"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span class="circle-2">1</span></a>
               <div class="dropdown-menu dropdown-menu2 dropdown-menu-right animate slideIn">
                 <div class="container">
                   <div class="row">
@@ -68,14 +68,23 @@
     <div class="clearfix"></div>
   </nav>
 
-  <div class="container">
-    <div class="row" >
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Promo</button> 
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Pizza</button>
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Pasta</button>
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Drinks</button>
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Combo Meal</button>
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Heavy Meal</button>
-        <button class="btn btn-primary mb-2 mr-2 col-lg-2 col-md-2">Dessert</button>
-    </div>
+  <div class="row p-4">
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Promo</button>
+        </div>
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Pizza</button>
+        </div>
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Pasta</button>
+        </div>
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Drinks</button>
+        </div>
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Combo Meal</button>
+        </div>
+        <div class="col-lg-2 col-md-2">
+          <button class="btn btn-primary ">Dessert</button>
+        </div>
   </div>

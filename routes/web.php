@@ -30,12 +30,6 @@ Route::group(['prefix' => 'dashboard'], function (){
     Route::get          ('/filtering/{date}',            'DashboardController@filtering'                      )->name('reason_update');
     Route::get          ('/payment/{date}',              'DashboardController@payment'                        )->name('reason_update');
     Route::get          ('/monthly',                     'DashboardController@monthly'                        )->name('reason_update');
-    Route::get          ('/income_expense',              'DashboardController@incomeExpense'                  )->name('reason_update');
-    Route::get          ('/piechart',                    'DashboardController@piechart'                       )->name('reason_update');
-    Route::get          ('/piechart_masterfile',         'DashboardController@piechart_masterfile'            )->name('reason_update');
-    Route::get          ('/bargraph',                    'DashboardController@bargraph'                       )->name('reason_update');
-    Route::get          ('/bargraph_masterfile',         'DashboardController@bargraph_masterfile'            )->name('reason_update');
-    Route::get          ('/bargraph_expense',            'DashboardController@bargraph_expense'               )->name('reason_update');
     Route::get          ('/masterfile',                  'DashboardController@masterfile'                     )->name('reason_update');
 });
 

@@ -139,6 +139,10 @@
                 "scrollX": true,
                 "pageLength": 100
             });
+
+            $('.shoppingbag').hover(function(){
+              shoppingBag();
+            })
         });
 </script>
 @yield('scripts')
