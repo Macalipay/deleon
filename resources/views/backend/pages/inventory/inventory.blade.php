@@ -138,11 +138,13 @@
                             <label for="inputPassword4">Type</label>
                             <select class="form-control" id="type"  name="type">
                                 <option selected disabled>Select Food Type</option>
+                                <option value="Promo">Promo</option>
                                 <option value="Food">Food</option>
                                 <option value="Drink">Drink</option>
                                 <option value="Desert">Desert</option>
                                 <option value="Pizza">Pizza</option>
                                 <option value="Pasta">Pasta</option>
+                                <option value="Combo Meal">Combo Meal</option>
                             </select>
                         </div>
                         <div class="form-group col-md-12">
@@ -157,6 +159,14 @@
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Photo</label>
                             <input type="file" class="form-control" id="photo" name="photo" placeholder="Enter Photo">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputPassword4">Best Seller</label>
+                            <select class="form-control" id="best_seller"  name="best_seller">
+                                <option selected disabled>Select Option</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -184,14 +194,15 @@
 
                 },
                 success: function(data) {
+                    console.log('hello');
                     $('.modal-title').text('Update Inventory');
-                    $('.submit-button').text('Update');
-                        $.each(data, function() {
-                            $.each(this, function(k, v) {
-                                $('#'+k).val(v);
-                            });
-                        });
                     $('#modal-form-inventory').attr('action', '/inventory/update/' + data.inventories.id);
+                    $('.submit-button').text('Update');
+                    $.each(data, function() {
+                        $.each(this, function(k, v) {
+                            $('#'+k).val(v);
+                        });
+                    });
                 }
             });
 

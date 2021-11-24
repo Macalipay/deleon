@@ -88,7 +88,16 @@ class InventoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        Inventory::find($id)->update($request->all());
+        $file = $request->photo->getClientOriginalName();
+        $filename = pathinfo($file, PATHINFO_FILENAME);
+
+        $imageName = $filename.time().'.'.$request->photo->extension();  
+        $image = $request->photo->move(public_path('images/product'), $imageName);
+
+        $requestData = $request->all();
+        $requestData['photo'] = $imageName;
+
+        Inventory::find($id)->update($requestData);
         return redirect()->back()->with('success','Successfully Updated');
     }
 

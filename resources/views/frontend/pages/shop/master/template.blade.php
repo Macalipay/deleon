@@ -108,6 +108,14 @@
             }
         });
    }
+   
+   function filterCategory(type) {
+      console.log("sdsd");
+      var value = type.toLowerCase();
+      $(".item-card").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    }
 
    function orderList(id){
             $('#orderTable').dataTable().fnDestroy();

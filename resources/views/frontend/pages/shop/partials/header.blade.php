@@ -69,22 +69,25 @@
   </nav>
 
   <div class="row p-4">
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Promo</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Best Seller')">Best Seller</button>
         </div>
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Pizza</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Promo')">Promo</button>
         </div>
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Pasta</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Pizza')">Pizza</button>
         </div>
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Drinks</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Pasta')">Pasta</button>
         </div>
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Combo Meal</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Drink')">Drinks</button>
         </div>
-        <div class="col-lg-2 col-md-2">
-          <button class="btn btn-primary ">Dessert</button>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Combo Meal')">Combo Meal</button>
+        </div>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Dessert')">Dessert</button>
         </div>
   </div>
