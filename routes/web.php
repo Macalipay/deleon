@@ -45,6 +45,7 @@ Route::group(['prefix' => 'user'], function (){
 // ORDER
 Route::group(['prefix' => 'order'], function (){
     Route::post         ('/show/{id}',                        'OrderController@show'                          )->name('reason');
+    Route::get          ('/destroy/{id}',                     'OrderController@destroy'                        )->name('reason_update');
 });
 
 // SHOP

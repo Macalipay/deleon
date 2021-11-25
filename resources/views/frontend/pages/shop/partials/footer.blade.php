@@ -12,12 +12,7 @@
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
-        <h3>My Account</h3>
-        <ul>
-          <li><a href="my-account.html">My Account</a></li>
-          <li><a href="login.html">Order History</a></li>
-          <li><a href="wishlist.html">Change Password</a></li>
-        </ul>
+       
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
         <h3>Contact Us</h3>

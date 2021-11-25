@@ -189,6 +189,10 @@
          
 
          $(function() {
+            $( window ).load(function() {
+              filterCategory('Best Seller');
+            });
+           
             $('#table-cart').DataTable({
                 "scrollX": true,
                 "searching": false,

@@ -141,7 +141,8 @@
                                 <option value="Promo">Promo</option>
                                 <option value="Food">Food</option>
                                 <option value="Drink">Drink</option>
-                                <option value="Desert">Desert</option>
+                                <option value="Burger">Burger</option>
+                                <option value="Dessert">Dessert</option>
                                 <option value="Pizza">Pizza</option>
                                 <option value="Pasta">Pasta</option>
                                 <option value="Combo Meal">Combo Meal</option>
@@ -215,7 +216,10 @@
         $(function() {
             $('#datatables').DataTable({
                 responsive: true,
-                "pageLength": 100
+                "pageLength": 100,
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
             });
 
             $( "table" ).on( "click", ".edit", function() {

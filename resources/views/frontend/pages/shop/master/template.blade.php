@@ -145,7 +145,8 @@
       $(function() {
             $('#orderTable').DataTable({
                 "scrollX": true,
-                "pageLength": 100
+                "pageLength": 100,
+                
             });
 
             $('.shoppingbag').hover(function(){
