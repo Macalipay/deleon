@@ -51,7 +51,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="form-label">Contact Number</label>
-              <input type="text" class="form-control" id="contact_number" name="contact_number">
+              <input type="number" class="form-control" id="contact_number" name="contact_number" required pattern="[0-9]{11}" placeholder="11 digit only">
             </div>
           </div>
          
