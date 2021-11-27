@@ -27,6 +27,7 @@
                                                 <th>#</th>
                                                 <th>Action</th>
                                                 <th>Name</th>
+                                                <th>Description</th>
                                                 <th>Price</th>
                                                 <th>Critical Level</th>
                                                 <th>Quantity Stock</th>
@@ -45,6 +46,7 @@
                                                         <a href="{{url('inventory/destroy/' . $inventory->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                                     </td>
                                                     <td>{{ $inventory->name }}</td>
+                                                    <td>{{ $inventory->description }}</td>
                                                     <td>{{ $inventory->price }}</td>
                                                     <td>{{ $inventory->critical_level}}</td>
                                                     <td>{{ $inventory->quantity_stock}}</td>
