@@ -108,7 +108,7 @@
                     <td>{{ $order->amount}}</td>
                     <td>{{ $order->total}}</td>
                     <td>
-                      <a href="{{url('order/destroy/' . $order->id)}}" onclick="alert('Are you sure you want to Delete?')">
+                      <a href="{{url('/order/destroy/' . $order->id)}}" onclick="alert('Are you sure you want to Delete?')">
                       <i class="align-middle fa fa-fw fa-trash" style="color: red"></i>
                       </a>
                     </td>

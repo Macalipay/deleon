@@ -39,6 +39,7 @@ table.dataTable thead th {
                                                 <th>Amount</th>
                                                 <th>Balance</th>
                                                 <th>Payment</th>
+                                                <th>Payment Type</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,6 +60,7 @@ table.dataTable thead th {
                                                     @else
                                                         <td class="badge badge-danger">{{ $daily_sale->payment_status}}</td>
                                                     @endif
+                                                    <td>{{ $daily_sale->payment_type}}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
