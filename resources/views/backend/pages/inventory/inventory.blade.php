@@ -217,8 +217,11 @@
             $('#datatables').DataTable({
                 responsive: true,
                 "pageLength": 100,
+                dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'excel', 'pdf'
+                    'pdf',
+                    'excel',
+                    'print'
                 ]
             });
 
