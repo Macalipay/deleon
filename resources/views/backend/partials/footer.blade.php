@@ -8,7 +8,7 @@
             </div>
             <div class="col-4 text-right">
                 <p class="mb-0">
-                    &copy;  - <a href="dashboard-default.html" class="text-muted">OpiMac</a>
+                    &copy;  - <a href="dashboard-default.html" class="text-muted">Deleon's Best</a>
                 </p>
             </div>
         </div>
