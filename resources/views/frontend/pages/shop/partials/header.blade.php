@@ -5,7 +5,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li class="nav-item"> <a class="nav-link" href="{{url('/')}}">Home</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{url('shop')}}">Shop</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{url('shop')}}">Best Seller</a></li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('shop/history')}}">History</a></li>
         </ul>
         <div class="rate-price nav-1">
@@ -69,23 +69,26 @@
   </nav>
 
   <div class="row p-4">
-        <div class="col-lg col-md">
+        {{-- <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Best Seller')">Best Seller</button>
-        </div>
+        </div> --}}
         <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Promo')">Promo</button>
-        </div>
-        <div class="col-lg col-md">
-          <button class="btn btn-primary" onclick="filterCategory('Pizza')">Pizza</button>
-        </div>
-        <div class="col-lg col-md">
-          <button class="btn btn-primary" onclick="filterCategory('Pasta')">Pasta</button>
         </div>
         <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Drink')">Drinks</button>
         </div>
         <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Pizza')">Pizza</button>
+        </div>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Burger')">Burger</button>
+        </div>
+        <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Combo Meal')">Combo Meal</button>
+        </div>
+        <div class="col-lg col-md">
+          <button class="btn btn-primary" onclick="filterCategory('Pasta')">Pasta</button>
         </div>
         <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Dessert')">Dessert</button>
