@@ -38,7 +38,8 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+        $users = User::where('id', $id)->orderBy('id')->firstOrFail();
+        return response()->json(compact('users'));
     }
 
     public function update(Request $request)

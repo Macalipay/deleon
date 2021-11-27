@@ -47,6 +47,7 @@ table.dataTable thead th {
                                                 <tr>
                                                     <td>{{ ++$key}}</td>
                                                     <td class="table-action">
+                                                        <a href="#" class="align-middle fa fa-fw fa-user customerModal" onclick="edit({{$daily_sale->user_id}})" title="Information" data-toggle="modal" data-target="#customerModal" id={{$daily_sale->id}}></a>
                                                         <a href="#" class="align-middle fa fa-fw fa-money-bill paymentModal" title="Payment" data-toggle="modal" data-target="#paymentModal" id={{$daily_sale->id}}></a>
                                                         <a href="#" class="align-middle fa fa-fw fa-shopping-cart" onclick="orderList({{$daily_sale->id}})" title="List of Order" data-toggle="modal" data-target="#orderModal" id={{$daily_sale->id}}></a>
                                                         <a href="{{url('daily_sales/destroy/' . $daily_sale->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
@@ -210,6 +211,55 @@ table.dataTable thead th {
                 </div>
             </div>
         </div>
+
+        {{-- MODAL --}}
+        <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Customer Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3">
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3 text-sm-right">Firstname</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="firstname" id="firstname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3 text-sm-right">Last Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="lastname" id="lastname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3 text-sm-right">Address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="address" id="address">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3 text-sm-right">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-sm-3 text-sm-right">Contact Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="contact_number" id="contact_number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 @endsection
 
@@ -221,16 +271,12 @@ table.dataTable thead th {
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/daily_sales/edit/' + id,
+                url: '/user/edit/' + id,
                 method: 'get',
                 data: {
 
                 },
                 success: function(data) {
-                    $('#modal-form').attr('action', 'daily_sales/update/' + data.products.id);
-                    $('.customer_value').val(data.products.customer.name);
-                    $('.modal-title').text('Update Order');
-                    $('.submit-button').text('Update');
                         $.each(data, function() {
                             $.each(this, function(k, v) {
                                 $('#'+k).val(v);
@@ -281,10 +327,6 @@ table.dataTable thead th {
 
             $( "table" ).on( "click", ".paymentModal", function() {
                 paymentStatus(this.id);
-            });
-
-            $( "table" ).on( "click", ".edit", function() {
-                edit(this.id);
             });
 
             $('.add').click(function(){
