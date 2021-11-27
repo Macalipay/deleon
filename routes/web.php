@@ -45,6 +45,7 @@ Route::group(['prefix' => 'user'], function (){
 // ORDER
 Route::group(['prefix' => 'order'], function (){
     Route::post         ('/show/{id}',                        'OrderController@show'                          )->name('reason');
+    Route::get          ('/destroy/{id}',                     'OrderController@destroy'                       )->name('reason_update');
 });
 
 // SHOP
@@ -56,7 +57,7 @@ Route::group(['prefix' => 'shop'], function (){
     Route::get          ('/destroy/{id}',                'ShopController@destroy'                        )->name('reason_update');
     Route::get          ('/add_to_cart',                 'ShopController@addCart'                        )->name('reason_update');
     Route::get          ('/shopping_bag',                'ShopController@shopping_bag'                   )->name('reason_update');
-    Route::get          ('/check_out',                   'ShopController@check_out'                   )->name('reason_update');
+    Route::get         ('/check_out',                   'ShopController@check_out'                   )->name('reason_update');
     Route::get          ('/login',                       'ShopController@login'                          )->name('reason_update');
     Route::get          ('/register',                    'ShopController@register'                       )->name('reason_update');
     Route::get          ('/history',                     'ShopController@history'                        )->name('reason_update');

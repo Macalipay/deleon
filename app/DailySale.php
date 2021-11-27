@@ -13,6 +13,7 @@ class DailySale extends Model
         'amount',
         'balance',
         'payment_status',
+        'payment_type',
         'status',
     ];
 

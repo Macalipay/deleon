@@ -54,7 +54,7 @@
                       <hr>
                     </div>
                     <div class="col-md-12 text-center">
-                      <input type="button" value="Check out" onclick="checkOut()" class="btn check-out w-100">
+                      <input type="button" value="Check out" data-toggle="modal" data-target="#paymentStatus" class="btn check-out w-100">
                     </div>
                   </div>
                 </div>

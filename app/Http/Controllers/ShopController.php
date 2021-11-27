@@ -131,10 +131,12 @@ class ShopController extends Controller
     {
         $daily_sale = $request->validate([
             'description' => ['max:250'],
+            'payment_type' => ['max:250']
         ]);
 
         $sale = DailySale::where('user_id', Auth::user()->id)->where('payment_status', 'Unpaid')->firstOrFail();
-        DailySale::find($sale->id)->update(['status' => 'Check Out', 'description' => $request->description]);
+        DailySale::find($sale->id)->update(['status' => 'Check Out', 'description' => $request->description, 'payment_type' => $request->payment_type]);
+        return redirect()->back()->with('success','Successfully Added');
     }
 
     /**

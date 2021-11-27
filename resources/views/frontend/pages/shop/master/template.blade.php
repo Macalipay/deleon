@@ -38,6 +38,39 @@
     </div>
   </div>
 </div>
+
+{{-- MODAL --}}
+<div class="modal fade" id="paymentStatus" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Check Out</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body m-3">
+            <form id="modal-form-payment" action="{{url('/shop/check_out')}}" method="get" enctype="multipart/form-data">
+              <div class="form-group row">
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword4">Message</label>
+                    <textarea name="description" id="description" cols="10" rows="10" placeholder="Additiona Message" class="form-control"></textarea>
+                 </div>
+                  <div class="col-sm-12">
+                      <select class="form-control" name="payment_type" id="payment_type">
+                          <option value="CASH" selected>CASH</option>
+                          <option value="GCASH">GCASH</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Check Out</button>
+          </form>
+          </div>
+      </div>
+  </div>
+</div>
 <!-- Footer -->
 @include('frontend.pages.shop.partials.footer')
 
@@ -92,22 +125,21 @@
         });
    }
 
-   function checkOut(){
-    var message = prompt("Enter Note or Description", "No Message");
-      $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: '/shop/check_out',
-            method: 'get',
-            data: {
-              description: message
-            },
-            success: function(data) {
+  //  function checkOut(){
+  //     $.ajax({
+  //           headers: {
+  //               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //           },
+  //           url: '/shop/check_out',
+  //           method: 'get',
+  //           data: {
+  //             description: message
+  //           },
+  //           success: function(data) {
               
-            }
-        });
-   }
+  //           }
+  //       });
+  //  }
    
    function filterCategory(type) {
       console.log("sdsd");

@@ -16,6 +16,12 @@ class OrderController extends Controller
         }
 
         return response()->json(compact('test'));
+    }
 
+    public function destroy($id)
+    {
+        $order = Order::find($id);
+        $order->delete();
+        return redirect()->back()->with('success','Successfully Deleted!');
     }
 }

@@ -14,7 +14,7 @@ class AddDateToDailySalesTable extends Migration
     public function up()
     {
         Schema::table('daily_sales', function (Blueprint $table) {
-            // $table->string('date')->nullable();
+            $table->string('payment_type')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddDateToDailySalesTable extends Migration
     public function down()
     {
         Schema::table('daily_sales', function (Blueprint $table) {
-            // $table->dropColumn('date');
+            $table->dropColumn('payment_type');
         });
     }
 }
