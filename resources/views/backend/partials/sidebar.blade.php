@@ -3,7 +3,7 @@
         <svg>
             <use xlink:href="#ion-ios-pulse-strong"></use>
         </svg>
-        DELEON'S BEST
+        DE LEON'S BEST
     </a>
     <div class="sidebar-content">
         <div class="sidebar-user">
@@ -54,11 +54,11 @@
                         <i class="align-middle mr-2 fas fa-fw fa-money-bill-wave"></i> <span class="align-middle">Payment</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ url('promo') }}">
                         <i class="align-middle mr-2 fas fa-fw fa-money-bill-wave"></i> <span class="align-middle">Promo</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="sidebar-header">
                     Inventory
                  </li>

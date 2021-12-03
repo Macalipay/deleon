@@ -51,11 +51,11 @@
                     <div class="row m-0 list-n">
                       <div class="col-12 p-0">
                         <h5 class="product-price">₱ {{ $product->price }}</h5>
-                        <div class="col-lg-12 col-md-12">
+                        {{-- <div class="col-lg-12 col-md-12">
                             <button>S</button>
                             <button>M</button>
                             <button>L</button>
-                        </div>
+                        </div> --}}
                       </div>
                       <div class="col-12 p-0">
                         <div class="product-price">

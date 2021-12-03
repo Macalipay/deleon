@@ -12,7 +12,7 @@ table.dataTable thead th {
         <div class="container-fluid">
             <div class="header">
                 <h1 class="header-title">
-                       Deleon's Best - Daily Sales
+                       De leon's Best - Daily Sales
                 </h1>
                 <p style="color: white">Always record and update the Daily Sales</p>
             </div>

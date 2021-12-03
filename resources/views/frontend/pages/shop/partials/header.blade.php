@@ -72,9 +72,9 @@
         {{-- <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Best Seller')">Best Seller</button>
         </div> --}}
-        <div class="col-lg col-md">
+        {{-- <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Promo')">Promo</button>
-        </div>
+        </div> --}}
         <div class="col-lg col-md">
           <button class="btn btn-primary" onclick="filterCategory('Drink')">Drinks</button>
         </div>

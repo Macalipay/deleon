@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-<title>Deleon's Best</title>
+<title>De leon's Best</title>
 <link rel="icon" href="{{ asset('img/Logo.png') }}" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Archivo:400,600,700%7CMuli:400">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

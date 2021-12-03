@@ -4,7 +4,7 @@
         <div class="col-xl-6 col-xxl-5">
           <!--Brand-->
           <a class="brand wow fadeIn" href="{{ url('/') }}" data-wow-delay=".5s"> <img class="brand-logo-dark" src="{{ asset('img/Logo.png') }}" alt="" width="220" height="200"/></a>
-          <h1 class="wow fadeIn" data-wow-delay=".8s">Deleon's Best</h1>
+          <h1 class="wow fadeIn" data-wow-delay=".8s">De leon's Best</h1>
           <div class="box-promo">
             <div class="unit unit-spacing-md align-items-center justify-content-center justify-content-xl-start">
               <div class="unit-left wow fadeIn" data-wow-delay="1s"><a class="button button-shadow" style="color:#01539d; border-color:#fdb818 ; background:#fdb818" href="{{url('shop')}}" style="color: white">VIEW MENU!</a></div>
