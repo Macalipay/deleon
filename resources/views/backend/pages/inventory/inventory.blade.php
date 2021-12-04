@@ -86,7 +86,7 @@
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Quantity</label>
                             <input type="text" class="form-control" id="inventory_id" name="inventory_id" hidden>
-                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity">
+                            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity" onkeydown="return false">
                         </div>
            
                         <div class="form-group col-md-12">

@@ -45,7 +45,7 @@
                             <td>{{ $order->inventory->name}}</td>
                             <td>{{ $order->quantity}}</td>
                             <td>{{ $order->amount}}</td>
-                            <td>{{ $order->total}}</td>
+                            <td>{{number_format($order->total, 2, '.', ',')}}</td>
                         </tr>
                    @empty
                        <tr>

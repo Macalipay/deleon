@@ -11,7 +11,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle position-relative" href="#" id="messagesDropdown" data-toggle="dropdown">
-                    {{-- <i class="align-middle fas fa-envelope-open"></i> --}}
+                    <i class="align-middle fas fa-envelope-open"></i>
                 </a>
                 
             </li>

@@ -20,37 +20,37 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">Email Address</label>
+              <label class="form-label">Username*</label>
               <input type="text" class="form-control" id="email" name="email">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">Password</label>
+              <label class="form-label">Password*</label>
               <input type="password" class="form-control" id="password" name="password">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">First Name</label>
+              <label class="form-label">First Name*</label>
               <input type="text" class="form-control" id="firstname" name="firstname">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">Last Name</label>
+              <label class="form-label">Last Name*</label>
               <input type="text" class="form-control" id="lastname" name="lastname">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">Address</label>
+              <label class="form-label">Address*</label>
               <input type="text" class="form-control" id="address" name="address">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label class="form-label">Contact Number</label>
+              <label class="form-label">Contact Number*</label>
               <input type="number" class="form-control" id="contact_number" name="contact_number" required pattern="[0-9]{11}" placeholder="11 digit only">
             </div>
           </div>

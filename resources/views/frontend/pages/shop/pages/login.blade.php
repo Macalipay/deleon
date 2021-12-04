@@ -9,8 +9,8 @@
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-group">
-              <label for="exampleInputEmail1"><strong class="text-uppercase">Username or email address *</strong></label>
-              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter email" >
+              <label for="exampleInputEmail1"><strong class="text-uppercase">Username*</strong></label>
+              <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter username" >
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

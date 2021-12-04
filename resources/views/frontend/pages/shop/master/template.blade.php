@@ -41,7 +41,7 @@
 
 {{-- MODAL --}}
 <div class="modal fade" id="paymentStatus" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title">Check Out</h5>
@@ -54,9 +54,10 @@
               <div class="form-group row">
                   <div class="form-group col-md-12">
                     <label for="inputPassword4">Message</label>
-                    <textarea name="description" id="description" cols="10" rows="10" placeholder="Additiona Message" class="form-control"></textarea>
+                    <textarea name="description" id="description" cols="5" rows="3" placeholder="Additiona Message" class="form-control"></textarea>
                  </div>
                   <div class="col-sm-12">
+                      <label for="inputPassword4">Mode of Payment</label>
                       <select class="form-control" name="payment_type" id="payment_type">
                           <option value="CASH" selected>CASH</option>
                           <option value="GCASH">GCASH</option>

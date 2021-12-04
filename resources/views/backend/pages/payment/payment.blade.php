@@ -42,7 +42,7 @@
                                                     <td>{{ date('M-d-Y', strtotime($payment->date))}}</td>
                                                     <td class="table-action">
                                                         <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$payment->id}}></a>
-                                                        <a href="{{url('payment/destroy/' . $payment->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                                        {{-- <a href="{{url('payment/destroy/' . $payment->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach
