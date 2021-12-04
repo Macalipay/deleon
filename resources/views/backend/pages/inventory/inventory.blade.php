@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Quantity Stock</label>
-                            <input type="number" class="form-control" id="quantity_stock" name="quantity_stock" placeholder="Enter Quantity Stock">
+                            <input type="number" class="form-control" id="quantity_stock" name="quantity_stock" placeholder="Enter Quantity Stock" onkeydown="return false">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputPassword4">Type</label>

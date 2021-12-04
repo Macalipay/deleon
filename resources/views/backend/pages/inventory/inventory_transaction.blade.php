@@ -24,7 +24,7 @@
                                                 <th>Name</th>
                                                 <th>Quantity</th>
                                                 <th>Date</th>
-                                                <th>Action</th>
+                                                {{-- <th>Action</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -35,10 +35,10 @@
                                                     <td>{{ $add_stock->inventory->name }}</td>
                                                     <td>{{ $add_stock->quantity}}</td>
                                                     <td>{{ date('M-d-Y', strtotime($add_stock->date))}}</td>
-                                                    <td class="table-action">
+                                                    {{-- <td class="table-action">
                                                         <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$add_stock->id}}></a>
                                                         <a href="{{url('/inventory/stock/destroy/' . $add_stock->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

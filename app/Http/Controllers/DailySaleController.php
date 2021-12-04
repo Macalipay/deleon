@@ -22,7 +22,7 @@ class DailySaleController extends Controller
     public function all()
     {
         $dt = Carbon::now();
-        $daily_sales = DailySale::orderBy('id', 'desc')->get();
+        $daily_sales = DailySale::where('payment_status', 'paid')->orderBy('id', 'desc')->get();
         $daily_sale = Payment::where('date', $dt->toDateString())->sum('amount');
         $unpaid = DailySale::where('payment_status', 'Unpaid')->sum('balance');
         return view('backend.pages.sales.all_sales', compact('daily_sales', 'daily_sale', 'unpaid'));
