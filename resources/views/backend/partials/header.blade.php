@@ -11,12 +11,25 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle position-relative" href="#" id="messagesDropdown" data-toggle="dropdown">
-                    <i class="align-middle fas fa-envelope-open"></i>
+                    <i class="align-middle fas fa-envelope-open fa-stack data_count" data-count="0"></i>
                 </a>
-                
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+                    <div class="dropdown-menu-header">
+                        <div class="position-relative message">
+                            
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        
+                    </div>
+                    <div class="dropdown-menu-footer">
+                        <a href="#" class="text-muted">Show all messages</a>
+                    </div>
+                </div>
             </li>
                 <span class="indicator"></span>
             </a>
+            
             </li>
             <li class="nav-item dropdown ml-lg-2">
                 <a class="nav-link dropdown-toggle position-relative" href="#" id="userDropdown" data-toggle="dropdown">

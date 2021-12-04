@@ -32,4 +32,9 @@ class Inventory extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

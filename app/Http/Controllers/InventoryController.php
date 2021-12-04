@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Inventory;
+use App\Notification;
 use App\Consumable;
 use Illuminate\Http\Request;
 use App\InventoryTransaction;
@@ -65,10 +66,22 @@ class InventoryController extends Controller
 
         if($quantity_stock > $inventory_item->critical_level) {
             Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Good']);
+            Notification::create([
+                'inventory_id' => $request->inventory_id,
+                'description' => 'Good',
+            ]);
         } else if ($quantity_stock <= $inventory_item->critical_level && $quantity_stock > 0) {
             Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Critical Level']);
+            Notification::create([
+                'inventory_id' => $request->inventory_id,
+                'description' => 'Critical Level',
+            ]);
         } else {
             Inventory::where('id', $request->inventory_id)->update(['quantity_stock' => $quantity_stock, 'status' => 'Out of Stock']);
+            Notification::create([
+                'inventory_id' => $request->inventory_id,
+                'description' => 'Out of Stock',
+            ]);
         }
 
         return redirect()->back()->with('success','Successfully Added');

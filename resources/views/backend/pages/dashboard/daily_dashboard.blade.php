@@ -129,7 +129,10 @@
          $(function() {
             $('#datatables').DataTable({
                 responsive: true,
-                "pageLength": 100
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
             });
 
             $('#filtering_date').change(function(){

@@ -38,10 +38,22 @@ class OrderController extends Controller
 
             if($new_inventory <= $inventory->critical_level && $new_inventory > 0) {
                 Inventory::find($order_record->inventory_id)->update(['quantity_stock' => $new_inventory, 'status' => 'Critical Level']);
+                Notification::create([
+                    'inventory_id' => $request->inventory_id,
+                    'description' => 'Critical Level',
+                ]);
             } else if($new_inventory <= 0) {
                 Inventory::find($order_record->inventory_id)->update(['quantity_stock' => $new_inventory, 'status' => 'Out of Stock']);
+                Notification::create([
+                    'inventory_id' => $request->inventory_id,
+                    'description' => 'Out of Stock',
+                ]);
             } else {
                 Inventory::find($order_record->inventory_id)->update(['quantity_stock' => $new_inventory]);
+                Notification::create([
+                    'inventory_id' => $request->inventory_id,
+                    'description' => 'Good',
+                ]);
             }
 
             $order = Order::find($id);

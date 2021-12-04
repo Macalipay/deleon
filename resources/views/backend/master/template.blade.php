@@ -16,12 +16,27 @@
 	<link href="{{ asset('docs/css/modern.css') }}" rel="stylesheet"> 
 	<link href="{{ asset('css/global.css') }}" rel="stylesheet"> 
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+	
 	@yield('links')
 	@yield('style')
 	
 	<style>
 		body {
 			opacity: 0;
+		}
+		.fa-stack[data-count]:after{
+			position:absolute;
+			right:0%;
+			top:1%;
+			content: attr(data-count);
+			font-size:60%;
+			padding:.6em;
+			border-radius:999px;
+			line-height:.75em;
+			color: white;
+			background:rgba(255,0,0,.85);
+			text-align:center;
+			font-weight:bold;
 		}
 	</style>
 	<script src="{{ asset('docs/js/settings.js') }}"></script>
@@ -140,7 +155,56 @@
   </svg>
 	<script src="{{ asset('docs/js/app.js') }}"></script>
 	<script src="{{ asset('js/moment.js') }}"></script>
+	<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 	@yield('scripts')
+	<script>
+		$(document).ready(function(){
+			$.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/notification/show',
+                method: 'get',
+                data: {
+
+                },
+                success: function(data) {
+					notification = data.notifications;
+					$('.list-group').empty();
+					$('.message').empty();
+					$('.data_count').attr('data-count', data.count)
+					$('.message').append(data.count + ' New Messages')
+					for (let index = 0; index < notification.length; index++) {
+						if(data.notifications[index].status == 0) {
+							back_color = '#dbdbdb';
+						} else {
+							back_color = white;
+						}
+						$('.list-group').append('<a href="#" class="list-group-item" style = "background-color:' + back_color + '">'+
+                            '<div class="row no-gutters align-items-center">'+
+                                '<div class="col-2">'+
+                                    '<img src="/images/product/' + data.notifications[index].inventory_notif.photo + '" class="avatar img-fluid rounded-circle" alt="Michelle Bilodeau">'+
+                                '</div>'+
+                                '<div class="col-10 pl-2">'+
+                                    '<div class="text-dark">' + data.notifications[index].inventory_notif.name +'</div>'+
+                                    '<div class="text-muted small mt-1">'+ data.notifications[index].inventory_notif.name + 'is on ' + data.notifications[index].description + ' Status .</div>'+
+                                    '<div class="text-muted small mt-1">' + data.notifications[index].created_at + '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</a>')
+					}
+				  
+                }
+            });
+		})
+	</script>
 </body>
 
 </html>

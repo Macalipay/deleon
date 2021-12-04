@@ -42,6 +42,15 @@ Route::group(['prefix' => 'user'], function (){
     Route::get          ('/destroy/{id}',                'UserController@destroy'                        )->name('reason_update');
 });
 
+// NOTFICATION
+Route::group(['prefix' => 'notification'], function (){
+    Route::get          ('/',                            'NotificationController@index'                          )->name('selection');
+    Route::post         ('/save',                        'NotificationController@store'                          )->name('reason');
+    Route::get          ('/show',                        'NotificationController@show'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'NotificationController@update'                         )->name('reason_update');
+    Route::get          ('/destroy/{id}',                'NotificationController@destroy'                        )->name('reason_update');
+});
+
 // ORDER
 Route::group(['prefix' => 'order'], function (){
     Route::post         ('/show/{id}',                        'OrderController@show'                          )->name('reason');
