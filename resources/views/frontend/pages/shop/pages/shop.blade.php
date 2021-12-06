@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-9 col-md-9 p-4">
+  <div class="col-lg-8 col-md-8 p-4">
     <nav aria-label="breadcrumb" class="bread-boder">
       <div class="row">
         <div class="col-lg-8 col-md-6">
@@ -15,9 +15,8 @@
       </div>
       <div class="clearfix"></div>
     </nav>
-
     <div class="row">
-      <div class="col-lg-10 col-md-10">
+      <div class="col-lg-8 col-md-8 p-4">
         <div class="row">
           <div class="col-12">
             <div class="right-heading">
@@ -86,7 +85,7 @@
     <div class="clearfix"></div>
   </div>
   
-  <div class="col-lg-3 col-md-2 p-4">
+  <div class="col-lg-4 col-md-4 p-4">
     <h3 class="text-center mb-3">My Cart</h3>
     <table id="table-cart" class="table table-striped" style="width:100%">
       <thead>
@@ -102,14 +101,23 @@
       <tbody>
           @forelse ($orders as $key => $order)
                 <tr>
-                    <td>{{ ++$key}}</td>
+                    <td>
+                      <a href="{{url('/order/add/' . $order->id)}}">
+                        <i class="align-middle fa fa-fw fa-plus" class="{{$order->id}}"></i>
+                      </a>
+                      @if ($order->quantity != 1)
+                        <a href="{{url('/order/minus/' . $order->id)}}">
+                          <i class="align-middle fa fa-fw fa-minus" id="{{$order->id}}"></i>
+                        </a>
+                      @endif
+                    </td>
                     <td>{{ $order->inventory->name}}</td>
                     <td>{{ $order->quantity}}</td>
                     <td>{{ $order->amount}}</td>
                     <td>{{ $order->total}}</td>
                     <td>
                       <a href="{{url('/order/destroy/' . $order->id)}}" onclick="alert('Are you sure you want to Delete?')">
-                      <i class="align-middle fa fa-fw fa-trash" style="color: red"></i>
+                        <i class="align-middle fa fa-fw fa-trash" style="color: red"></i>
                       </a>
                     </td>
                 </tr>

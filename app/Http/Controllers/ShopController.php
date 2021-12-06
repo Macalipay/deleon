@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $products = Inventory::where('status', '!=', 'Out of Stock')->get();
@@ -93,8 +88,15 @@ class ShopController extends Controller
                 Inventory::find($request->inventory_id)->update(['quantity_stock' => $new_inventory]);
             }
 
-            $request->request->add(['daily_sale_id' => $sale->id, 'amount' => $inventory->price, 'total' => $total]);
-            Order::create($request->all());
+            
+            if(Order::where('inventory_id', $request->inventory_id)->where('daily_sale_id', $sale->id)->exists()) {
+                $existing_order = Order::where('inventory_id', $request->inventory_id)->where('daily_sale_id', $sale->id)->firstOrFail();
+                Order::find($existing_order->id)->update(['quantity' => $existing_order->quantity + $request->quantity, 'total' => $existing_order->total + ($request->quantity * $existing_order->amount)]);
+            } else {
+                $request->request->add(['daily_sale_id' => $sale->id, 'amount' => $inventory->price, 'total' => $total]);
+                Order::create($request->all());
+            }
+            
         } else {
             $sale = DailySale::create([
                 'user_id' => Auth::user()->id,

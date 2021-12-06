@@ -53,8 +53,10 @@ Route::group(['prefix' => 'notification'], function (){
 
 // ORDER
 Route::group(['prefix' => 'order'], function (){
-    Route::post         ('/show/{id}',                        'OrderController@show'                          )->name('reason');
-    Route::get          ('/destroy/{id}',                     'OrderController@destroy'                        )->name('reason_update');
+    Route::post         ('/show/{id}',                   'OrderController@show'                          )->name('reason');
+    Route::get          ('/add/{id}',                    'OrderController@add'                        )->name('reason_update');
+    Route::get          ('/minus/{id}',                  'OrderController@minus'                        )->name('reason_update');
+    Route::get          ('/destroy/{id}',                'OrderController@destroy'                        )->name('reason_update');
 });
 
 // SHOP
